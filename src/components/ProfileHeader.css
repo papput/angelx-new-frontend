@@ -1,0 +1,86 @@
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 12px;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.profile-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-pic {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.phone {
+  font-size: clamp(18px, 5vw, 30px);
+  font-weight: 600;
+  color: #111;
+}
+
+.balance {
+  font-size: 14px;
+  color: #666;
+  font-size: clamp(15px, 5vw, 14px);
+  font-weight: bold;
+}
+
+.profile-right {
+  display: flex;
+  align-items: center;
+}
+
+.profile-help-btn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.profile-help-btn.is-loading .profile-whatsapp-icon {
+  opacity: 0.45;
+  animation: header-icon-pulse 1s ease-in-out infinite;
+}
+
+@keyframes header-icon-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.icon-btn {
+  width: 24px;
+  /* height: 24px; */
+  cursor: pointer;
+}
+
+.profile-whatsapp-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  display: block;
+}

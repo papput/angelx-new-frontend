@@ -1,0 +1,131 @@
+.contact-container {
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  background: #f8f9fb;
+}
+
+/* Hero Section */
+.contact-hero {
+  background: linear-gradient(to right, #fff3ff, #ffffff);
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.contact-hero h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #333;
+}
+
+.contact-hero h1 span {
+  color: #ffc107;
+}
+
+.contact-hero p {
+  font-size: 15px;
+  color: #555;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+/* Contact Section */
+.contact-section {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.contact-section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Contact Cards */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 12px;
+}
+
+.contact-card {
+  background: #fafafa;
+  border: 1px solid #eaeaea;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.contact-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 5px;
+}
+
+.contact-card p,
+.contact-card a {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+.contact-card a {
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.contact-card a:hover {
+  color: #ffc107;
+}
+
+/* CTA Section */
+.contact-cta {
+  background: #14182a;
+  color: white;
+  padding: 30px 20px;
+  border-radius: 15px;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.contact-cta h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.contact-cta p {
+  font-size: 14px;
+  color: #d1d1d1;
+}
+
+.contact-btn {
+  margin-top: 15px;
+  background: white;
+  color: #14182a;
+  border: none;
+  padding: 12px 25px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.contact-btn:hover {
+  background: #ffc107;
+  color: #14182a;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .contact-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

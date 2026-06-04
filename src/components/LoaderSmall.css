@@ -1,0 +1,42 @@
+/* FULL SCREEN INVISIBLE OVERLAY THAT BLOCKS ALL CLICKS */
+.page-loader-overlay_small {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  /* Invisible but blocks user interaction */
+  background: transparent;
+  pointer-events: all;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999999;
+}
+
+/* Center Box */
+.loader-box_small {
+  width: 24px;
+  /* height: 70px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Loader Wrapper */
+.loader_small {
+  /* width: 48px;
+  height: 48px; */
+  position: relative;
+  animation: rotate 1s linear infinite;
+}
+
+.loader_small::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  /* border-radius: 50%; */
+}

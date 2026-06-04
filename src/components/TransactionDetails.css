@@ -1,0 +1,397 @@
+/* ---------------------------------------------------
+   MAIN CONTAINER
+--------------------------------------------------- */
+.txn-container {
+  width: 100%;
+  /* padding: 20px; */
+  padding-top: 20px;
+  background: #ffffff;
+  font-family: system-ui, sans-serif;
+}
+
+/* ---------------------------------------------------
+   TOP SECTION
+--------------------------------------------------- */
+.txn-top {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.txn-receive-label {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 4px;
+}
+
+.txn-amount {
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+
+/* ---------------------------------------------------
+   SUCCESS PAGE STYLES
+--------------------------------------------------- */
+/* SUCCESS WRAPPER -- centered like screenshot */
+.txn-success-wrapper {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+/* TOP TEXT */
+.txn-receive-label {
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.txn-amount {
+  font-size: 35px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+/* UTR BOX EXACTLY LIKE SCREENSHOT */
+/* .txn-utr-box {
+  background: #000000;
+  color: #fff;
+  padding: 10px 1px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+} */
+
+.txn-utr-text {
+  font-weight: 600;
+}
+
+.txn-utr-copy {
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
+
+/* VIEW PAYMENT DETAIL BUTTON */
+/* .txn-view-payment-btn {
+  border: 1px solid #999;
+  padding: 10px 22px;
+  border-radius: 40px;
+  background: #fff;
+  font-size: 14px;
+  margin-bottom: 20px;
+  cursor: pointer;
+} */
+
+/* SUCCESS STATUS ROW */
+.txn-status-success-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 26px;
+  margin-top: 10px;
+}
+
+.txn-status-success-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.txn-status-success-icon {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 6px;
+  margin: 0px 4px;
+}
+
+.txn-status-success-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+}
+
+.txn-status-success-time {
+  font-size: 10px;
+  color: #888;
+  margin-top: 3px;
+}
+
+/* Line between Submitted → Successful */
+.txn-status-success-line {
+  width: 32%;
+  height: 2px;
+  background: #e5e5e5;
+  margin-top: 14px;
+}
+
+/* ---------------------------------------------------
+   STATUS ROW (PENDING)
+--------------------------------------------------- */
+.txn-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 30px;
+}
+
+.txn-status-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.txn-status-icon {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 6px;
+}
+
+.txn-status-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+}
+
+.txn-status-time {
+  font-size: 12px;
+  color: #888;
+  margin-top: 3px;
+}
+
+/* Middle separator between submitted → processing */
+.txn-status-line {
+  width: 35%;
+  height: 2px;
+  background: #e5e5e5;
+  margin-top: 18px;
+}
+
+/* ---------------------------------------------------
+   SECTIONS (PAYEE, TRADE INFO)
+--------------------------------------------------- */
+.txn-section {
+  margin-top: 30px;
+  background: #fafafa;
+  padding: 16px 0px;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+.txn-sub-section {
+  margin-top: 30px;
+  background: white;
+  padding: 16px 15px;
+  border-top: 15px solid rgb(242, 245, 246);
+}
+
+.txn-section-title {
+  font-size: 17px;
+  font-weight: 600;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+/* ---------------------------------------------------
+   ROWS INSIDE SECTIONS
+--------------------------------------------------- */
+.txn-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  /* border-bottom: 1px solid #f1f1f1; */
+}
+
+.txn-row:first-child {
+  padding-top: 5px;
+}
+.txn-row:last-child {
+  border-bottom: none;
+}
+
+.txn-label {
+  font-size: 14px;
+  color: #444;
+}
+
+.txn-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+}
+
+/* ---------------------------------------------------
+   COPY ICON
+--------------------------------------------------- */
+.txn-copy-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.txn-copy-icon {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------
+   USDT TRADE DETAIL ROW
+--------------------------------------------------- */
+.txn-usdt-row .txn-value {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.txn-usdt-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.txn-arrow {
+  font-size: 16px;
+  margin: 0 4px;
+  font-weight: bold;
+}
+.txn-arrow img {
+  width: 18px;
+  height: 18px;
+}
+
+/* ---------------------------------------------------
+   LOADER
+--------------------------------------------------- */
+.txn-loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* FAILED STATE */
+.txn-failed {
+  text-align: center;
+  padding-bottom: 20px;
+  color: #d60000;
+}
+
+.txn-failed-icon {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+.txn-failed-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #d60000;
+}
+
+.txn-failed-amount {
+  color: #d60000 !important;
+}
+
+.txn-failed-msg {
+  font-size: 14px;
+  margin-top: 8px;
+  color: #444;
+}
+
+.txn-failed-time {
+  font-size: 13px;
+  margin-top: 5px;
+  color: #777;
+}
+
+/* FIRST ROW: UTR + COPY ICON */
+.txn-utr-line1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: #000; */
+  color: white;
+  padding: 10px 18px;
+  border-radius: 40px;
+  font-size: 15px;
+  font-weight: 600;
+  gap: 6px;
+}
+
+/* TEXT */
+.txn-utr-text {
+  opacity: 0.9;
+}
+
+.txn-utr-value {
+  font-weight: 700;
+}
+
+/* COPY ICON */
+.txn-utr-copy {
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+}
+
+/* VIEW PAYMENT BUTTON */
+.txn-view-payment-btn {
+  background: transparent;
+  border: 1.5px solid #000;
+
+  /* padding: 10px 22px; */
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.txn-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  align-items: center; /* center horizontally */
+  gap: 12px; /* spacing between UTR box & button */
+  margin: 10px 0 20px 0;
+}
+
+.txn-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+/* base equal height */
+.txn-utr-box,
+.txn-view-payment-btn {
+  min-height: 33px; /* same height for both */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 0 18px;         keeps padding equal */
+  border-radius: 25px;
+  width: 200px;
+  /* height: 4px; */
+}
+
+/* UTR BOX STYLE */
+.txn-utr-box {
+  background: #000;
+  color: #fff;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* BUTTON STYLE */
+.txn-view-payment-btn {
+  background: transparent;
+  border: 1.5px dashed #000;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}

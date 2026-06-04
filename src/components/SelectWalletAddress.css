@@ -1,0 +1,512 @@
+:root {
+  --bg: #f7f8fa;
+  --white: #fff;
+  --border: #e9e9eb;
+  --gray-600: #666;
+  --gray-400: #999;
+  --text: #111;
+  --black: #000;
+}
+
+/* Page Layout */
+.select-wallet-page {
+  background: var(--bg);
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Roboto, Arial;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.sw-header {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 16px;
+}
+.back-arrow {
+  font-size: 42px;
+  cursor: pointer;
+}
+.header-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+.header-icon {
+  width: 24px;
+}
+
+/* Wallet List */
+.wallet-list {
+  flex: 1;
+  padding: 16px;
+  padding-bottom: 100px; /* for space above fixed button */
+}
+
+
+
+.wallet-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.network-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.wallet-info {
+  flex: 1;
+}
+
+.wallet-title {
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.usdt-small {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.wallet-address {
+  font-size: 14px;
+  color: var(--text);
+  margin-top: 4px;
+  word-break: break-all;
+}
+
+/* Circle (radio button) */
+.circle {
+  width: 20px;
+  height: 20px;
+  border: 1.8px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.circle.checked {
+  background-color: #16a34a;
+  border-color: #16a34a;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  line-height: 20px;
+}
+
+/* Wallet Footer */
+.wallet-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #f0f0f0;
+  font-size: 13px;
+  color: var(--gray-400);
+}
+.create-time {
+  color: var(--gray-600);
+}
+.delete-icon {
+  cursor: pointer;
+  font-size: 15px;
+  opacity: 0.7;
+  transition: 0.2s;
+}
+.delete-icon:hover {
+  opacity: 1;
+}
+
+/* No More Data */
+.no-more {
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+/* Fixed Bottom Button */
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--white);
+  padding: 12px 16px;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.06);
+  z-index: 99999;
+}
+.add-wallet-btn {
+  width: 100%;
+  height: 52px;
+  border: none;
+  outline: none;
+  border-radius: 999px;
+  background: var(--black);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+.add-wallet-btn:hover {
+  filter: brightness(0.9);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root {
+  --bg: #f7f8fa;
+  --white: #fff;
+  --border: #e9e9eb;
+  --gray-600: #666;
+  --gray-400: #999;
+  --text: #111;
+  --black: #000;
+}
+
+.select-wallet-page {
+  background: var(--bg);
+  min-height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Roboto, Arial;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.sw-header {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 16px;
+}
+.header-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+.header-icon {
+  width: 24px;
+}
+
+/* Wallet List */
+.wallet-list {
+  flex: 1;
+  padding: 16px;
+  padding-bottom: 100px;
+}
+
+/* Wallet Card */
+.wallet-card {
+  position: relative;
+  background: var(--white);
+  border-radius: 10px;
+  padding: 12px 14px 10px;
+  margin-bottom: 12px;
+  /* box-shadow: 0 0 0 1px var(--border) inset; */
+  cursor: pointer;
+  transition: transform 0.05s ease;
+}
+.wallet-card:active {
+  transform: scale(0.99);
+}
+
+.wallet-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding-right: 12px;
+}
+
+.network-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.wallet-info {
+  flex: 1;
+}
+
+.wallet-title {
+  font-weight: 700;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.usdt-small {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.wallet-address {
+  font-size: 14px;
+  color: var(--text);
+  margin-top: 4px;
+  word-break: break-all;
+}
+
+.wallet-right {
+  position: absolute;
+  right: 3px;
+  top: 22px;
+}
+
+/* Checkmark Circle */
+.circle {
+  width: 20px;
+  height: 20px;
+  border: 1.6px solid #ccc;
+  border-radius: 50%;
+}
+.circle.checked {
+  background-color: #22c55e;
+  border-color: #22c55e;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+/* Footer */
+.wallet-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #f1f1f1;
+  font-size: 13px;
+  color: var(--gray-400);
+}
+.create-time {
+  color: var(--gray-600);
+}
+.delete-icon {
+  cursor: pointer;
+  font-size: 15px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+.delete-icon:hover {
+  opacity: 1;
+}
+
+/* No More */
+.no-more {
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+/* Fixed Bottom */
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--white);
+  padding: 12px 16px;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.06);
+}
+.add-wallet-btn {
+  width: 100%;
+  height: 54px;
+  border: none;
+  border-radius: 999px;
+  background: var(--black);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.add-wallet-btn:hover {
+  filter: brightness(0.92);
+}
+
+
+
+
+
+/* PAGE ROOT */
+.wallet-page {
+  background: #f7f8fa;
+  padding: 16px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-top: 75px;
+  padding-bottom: 120px;
+}
+
+/* EMPTY STATE */
+.wl-empty {
+  text-align: center;
+  padding-top: 32%;
+  font-size: 15px;
+  color: #999;
+}
+.wl-empty-img {
+  width: 110px;
+  margin-bottom: 10px;
+}
+
+/* CARD */
+.wl-card {
+  background: white;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+/* TOP ROW */
+.wl-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+/* BANK INITIAL ICON */
+.wl-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #c89ac5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* CARD TEXT */
+.wl-info {
+  flex: 1;
+}
+
+.wl-title {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.wl-line {
+  font-size: 14px;
+  margin-top: 2px;
+  color: #333;
+}
+
+/* SELECT ICON */
+.wl-check {
+  margin-left: auto;
+  margin-top: 6px;
+}
+.wl-select-icon {
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+}
+
+/* FOOTER */
+.wl-footer {
+  border-top: 1px solid #f1f1f1;
+  margin-top: 10px;
+  padding-top: 8px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.wl-time {
+  color: #777;
+}
+
+/* DELETE BUTTON */
+.wl-delete-btn {
+  border: none;
+  background: none;
+}
+.wl-delete-icon {
+  width: 20px;
+}
+
+/* NO MORE */
+.wl-nomore {
+  text-align: center;
+  font-size: 14px;
+  color: #999;
+  margin-top: 10px;
+}
+
+/* FIXED ADD BUTTON */
+.wl-fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 12px 16px;
+  background: white;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.06);
+}
+
+.wl-add-btn {
+  display: block;
+  width: 100%;
+  height: 54px;
+  text-align: center;
+  background: #111;
+  color: white;
+  line-height: 54px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+
+
+/* Select icon */
+.blsw-right {
+  /* flex-shrink: 0; */
+}
+
+.blsw-select-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}

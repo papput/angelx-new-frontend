@@ -1,0 +1,275 @@
+/* =========================================================
+   MAIN PAGE
+========================================================= */
+.login-page {
+  flex: 1;
+  background: #ffffff;
+  /* padding: 32px 24px; px-6 py-8 */
+  font-family: sans-serif;
+  padding-top: 10px;
+}
+
+/* =========================================================
+   HEADER TEXT
+========================================================= */
+
+.login-head {
+  margin-bottom: 32px; /* mb-8 */
+  padding: 0px 32px;
+  padding-top: 25px;
+}
+
+.login-title {
+  font-size: 30px; /* text-[20px] */
+  font-weight: 700; /* font-bold */
+  color: #111827; /* text-gray-900 */
+  margin-bottom: 12px; /* mb-3 */
+}
+
+.login-subtitle {
+  font-size: 15px; /* text-[15px] */
+  color: #b1b1b1; /* text-gray-600 */
+}
+
+/* =========================================================
+   INPUT SECTION
+========================================================= */
+
+.login-input-box {
+  margin-bottom: 32px; /* mb-8 */
+}
+
+.login-input-row {
+  display: flex;
+  align-items: center;
+  padding-bottom: 12px; /* pb-3 */
+  background-color: #f8f9fc;
+  margin: auto;
+  padding: 15px;
+  width: 350px;
+  /* border-bottom: 1px solid #e5e7eb; border-gray-200 */
+}
+
+/* COUNTRY +91 WRAP */
+.login-flag-wrap {
+  display: flex;
+  align-items: center;
+  margin-right: 12px; /* mr-3 */
+}
+
+/* FLAG BOX */
+.login-flag {
+  width: 24px; /* w-6 */
+  height: 16px; /* h-4 */
+  border-radius: 4px;
+  overflow: hidden;
+  margin-right: 8px;
+  border: 1px solid #d1d5db; /* border-gray-300 */
+
+  display: flex;
+}
+
+/* 3 equal bars */
+.flag-bar {
+  width: 33.33%;
+  height: 100%;
+}
+
+.flag-bar.orange {
+  background: #f97316;
+}
+.flag-bar.white {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flag-bar.green {
+  background: #16a34a;
+}
+
+/* BLUE DOT */
+.flag-dot {
+  width: 4px;
+  height: 4px;
+  background: #1e3a8a;
+  border-radius: 50%;
+}
+
+/* COUNTRY CODE */
+.login-country {
+  color: #374151; /* text-gray-700 */
+  font-weight: 500;
+}
+
+/* DIVIDER */
+.login-divider {
+  width: 1px;
+  height: 24px; /* h-6 */
+  background: #757575; /* gray-300 */
+  margin-right: 12px;
+}
+
+/* INPUT */
+.login-input {
+  flex: 1;
+  outline: none;
+  border: none;
+  font-size: 18px; /* text-lg */
+  color: #1f2937; /* gray-800 */
+  background-color: #f8f9fc;
+  font-weight: 600;
+}
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.login-btn-wrap {
+  margin-bottom: 52px;
+  margin-top: 32px;
+  margin: auto;
+  text-align: center;
+}
+
+.login-btn {
+  width: 350px;
+  padding: 16px 0; /* py-[10px] */
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  width: 330px;
+  margin-top: 17px;
+}
+
+/* DISABLED STATE */
+.login-btn.disabled {
+  background: #d1d5db; /* bg-gray-300 */
+  color: white; /* text-gray-500 */
+  cursor: not-allowed;
+}
+
+/* ACTIVE STATE */
+.login-btn.active {
+  background: #000;
+  color: #fff;
+}
+
+.login-btn.active:hover {
+  background: #1f2937; /* hover:bg-gray-800 */
+}
+
+/* FOOTER (empty, same as original HTML) */
+.login-footer {
+  text-align: center;
+}
+
+/* ---------- OTP PAGE ---------- */
+.otp-page {
+  /* padding: 24px; */
+  background: #ffffff;
+  min-height: 100vh;
+  font-family: sans-serif;
+  padding-top: 10px;
+}
+
+.otp-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 12px;
+
+  padding: 0px 32px;
+  padding-top: 25px;
+}
+
+.otp-subtitle {
+  color: #6b7280;
+  margin-bottom: 24px;
+  font-size: 18px;
+  color: #b1b1b1;
+  padding: 0px 32px;
+  word-spacing: 2px;
+}
+
+.otp-number {
+  color: #b1b1b1;
+  font-weight: 600;
+  font-size: 18px;
+  word-spacing: 2px;
+}
+
+.otp-input-box-wrapper {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.otp-input-box {
+  width: 350px;
+  background: #f9fafb;
+  border-radius: 6px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  margin: auto;
+  text-align: center;
+}
+
+.otp-input {
+  width: 60%;
+  height: 38px;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #1f2937;
+}
+
+.otp-timer-text {
+  color: #6b7280;
+  font-size: 15px;
+}
+
+.otp-timer {
+  font-weight: 600;
+}
+
+.otp-get-btn {
+  background: transparent;
+  border: none;
+  color: #3b82f6;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.otp-btn-wrapper{
+  width: 100%;
+  text-align: center;
+}
+/* ---------- CONFIRM BUTTON ---------- */
+.otp-btn {
+  width: 350px;
+  height: 54px;
+  background: #d1d5db;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: not-allowed;
+}
+
+.otp-btn.active {
+  background: #111827;
+  cursor: pointer;
+}

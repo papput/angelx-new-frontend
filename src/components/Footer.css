@@ -1,0 +1,65 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  z-index: 100;
+}
+
+/* On mobile – full width */
+.footer-inner {
+  width: 100%;
+}
+
+/* On laptop/tablet – limit to app width */
+@media (min-width: 768px) {
+  .footer {
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 392px; /* Same as your .main_app */
+    border-left: 1px solid #eee;
+    border-right: 1px solid #eee;
+  }
+}
+
+
+.footer-items {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0px 0; /* py-1 */
+}
+
+/* Each button */
+.footer-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 16px; /* py-1 px-4 */
+  border-radius: 8px; /* rounded-lg */
+  color: var(--muted-foreground, #6b7280);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--foreground, #000000);
+}
+
+.footer-link.active {
+  color: #000000; /* text-black */
+}
+
+.footer-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.footer-text {
+  font-size: 10px; /* text-[10px] */
+  margin-top: 4px; /* mt-1 */
+  font-weight: bold;
+}

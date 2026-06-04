@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "1d4a8558-ca91-4df6-906c-dfca97bcd90b"
+      }
+    },
+    "android": {
+      "package": "com.paput.myapp"
+    }
+  }
+}

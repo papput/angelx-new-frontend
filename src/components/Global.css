@@ -1,0 +1,914 @@
+/* ============================================
+   GLOBAL RESET
+============================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ============================================
+   DISPLAY UTILITIES
+============================================ */
+
+.flex {
+  display: flex;
+}
+.inline-flex {
+  display: inline-flex;
+}
+.grid {
+  display: grid;
+}
+.block {
+  display: block;
+}
+
+/* ============================================
+   FLEX ALIGNMENT UTILITIES
+============================================ */
+
+.items-center {
+  align-items: center;
+}
+.items-start {
+  align-items: flex-start;
+}
+.items-baseline {
+  align-items: baseline;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-evenly {
+  justify-content: space-evenly;
+}
+.justify-around {
+  justify-content: space-around;
+}
+
+/* ============================================
+   FLEX GROW/SHRINK UTILITIES
+============================================ */
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+.flex-col {
+  flex-direction: column;
+}
+
+/* ============================================
+   GRID UTILITIES
+============================================ */
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* ============================================
+   SPACING (converted from Tailwind)
+============================================ */
+
+/* padding */
+.p-1 {
+  padding: 4px;
+}
+.p-2 {
+  padding: 8px;
+}
+.p-3 {
+  padding: 12px;
+}
+.p-4 {
+  padding: 16px;
+}
+.py-1 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.py-6 {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+.px-1 {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.px-2 {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.px-3 {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.px-4 {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* margin */
+.m-0 {
+  margin: 0;
+}
+.mt-1 {
+  margin-top: 4px;
+}
+.mt-2 {
+  margin-top: 8px;
+}
+.mt-3 {
+  margin-top: 12px;
+}
+.mt-4 {
+  margin-top: 16px;
+}
+.mt-6 {
+  margin-top: 24px;
+}
+.mb-1 {
+  margin-bottom: 4px;
+}
+.mb-2 {
+  margin-bottom: 8px;
+}
+.mb-6 {
+  margin-bottom: 24px;
+}
+
+/* gap */
+.gap-1 {
+  gap: 4px;
+}
+.gap-2 {
+  gap: 8px;
+}
+.gap-3 {
+  gap: 12px;
+}
+.gap-4 {
+  gap: 16px;
+}
+
+/* ============================================
+   WIDTH & HEIGHT UTILITIES
+============================================ */
+
+.w-full {
+  width: 100%;
+}
+.w-3 {
+  width: 12px;
+}
+.w-4 {
+  width: 16px;
+}
+.w-5 {
+  width: 20px;
+}
+.w-[40px] {
+  width: 40px;
+}
+.w-[80px] {
+  width: 80px;
+}
+.w-[90%] {
+  width: 90%;
+}
+.w-[95%] {
+  width: 95%;
+}
+
+.h-auto {
+  height: auto;
+}
+.h-3 {
+  height: 12px;
+}
+.h-4 {
+  height: 16px;
+}
+.h-5 {
+  height: 20px;
+}
+.h-[40px] {
+  height: 40px;
+}
+.h-[150px] {
+  height: 150px;
+}
+
+/* ============================================
+   BORDER UTILITIES
+============================================ */
+
+.border {
+  border: 1px solid #e5e7eb;
+}
+.border-t {
+  border-top: 1px solid #e5e7eb;
+}
+.border-gray-200 {
+  border-color: #e5e7eb;
+}
+.border-gray-100 {
+  border-color: #f3f4f6;
+}
+.border-yellow-300\/40 {
+  border-color: rgba(234, 179, 8, 0.4);
+}
+.border-r {
+  border-right: 1px solid #e5e7eb;
+}
+
+/* ============================================
+   BORDER RADIUS
+============================================ */
+
+.rounded-lg {
+  border-radius: 12px;
+}
+.rounded-xl {
+  border-radius: 16px;
+}
+.rounded-full {
+  border-radius: 9999px;
+}
+.rounded-b-lg {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+.rounded-t-lg {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+/* ============================================
+   SHADOWS (exact Tailwind versions)
+============================================ */
+
+.shadow-sm {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.shadow-md {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.shadow-card {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================
+   TEXT SIZES (Tailwind px scale)
+============================================ */
+
+.text-xs {
+  font-size: 12px;
+  line-height: 1.2;
+}
+.text-sm {
+  font-size: 14px;
+  line-height: 1.3;
+}
+.text-[10px] {
+  font-size: 10px;
+  line-height: 1.1;
+}
+.text-[12px] {
+  font-size: 12px;
+}
+.text-[13px] {
+  font-size: 13px;
+}
+.text-3xl {
+  font-size: 30px;
+  line-height: 1;
+}
+
+/* ============================================
+   FONT WEIGHT
+============================================ */
+
+.font-bold {
+  font-weight: 700;
+}
+.font-medium {
+  font-weight: 500;
+}
+.font-semibold {
+  font-weight: 600;
+}
+
+/* ============================================
+   TEXT COLORS (Tailwind palette)
+============================================ */
+
+.text-gray-1000 {
+  color: #0b0b0b;
+}
+.text-gray-900 {
+  color: #111827;
+}
+.text-gray-800 {
+  color: #1f2937;
+}
+.text-gray-700 {
+  color: #374151;
+}
+.text-gray-600 {
+  color: #4b5563;
+}
+.text-gray-500 {
+  color: #6b7280;
+}
+.text-gray-400 {
+  color: #9ca3af;
+}
+.text-red-500 {
+  color: #ef4444;
+}
+
+/* ============================================
+   BACKGROUND COLORS
+============================================ */
+
+.bg-white {
+  background-color: #ffffff;
+}
+.bg-gray-50 {
+  background-color: #f9fafb;
+}
+.bg-gray-100 {
+  background-color: #f3f4f6;
+}
+.bg-black {
+  background-color: #000000;
+}
+.bg-green-100 {
+  background-color: #dcfce7;
+}
+
+/* ============================================
+   GRADIENTS
+============================================ */
+
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+}
+
+.from-yellow-50 {
+  --tw-gradient-from: #fffbeb;
+}
+.via-white-100 {
+  --tw-gradient-via: #f3f4f6;
+}
+.to-white-400 {
+  --tw-gradient-to: #d4d4d8;
+}
+
+.bg-gradient-to-br {
+  background-image: linear-gradient(
+    to bottom right,
+    var(--tw-gradient-from),
+    var(--tw-gradient-via),
+    var(--tw-gradient-to)
+  );
+}
+
+.exchange-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.back-icon,
+.history-icon {
+  font-size: 1.5rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.header-title {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin: 0;
+  color: #222;
+}
+
+:root {
+  --bg: #f7f8fa;
+  --card-bg: #fff;
+  --border: #e9e9eb;
+  --gray-600: #666;
+  --gray-400: #a0a0a0;
+  --text: #0d0e10;
+  --black: #111;
+}
+
+.withdraw-page {
+  background: var(--bg);
+  min-height: 100vh;
+  color: var(--text);
+  font-family: inherit;
+}
+
+/* Header */
+.withdraw-header {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--card-bg);
+  /* border-bottom: 1px solid var(--border); */
+  padding: 0 16px;
+}
+
+.header-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+.header-icon {
+  font-size: 20px;
+}
+
+/* Content */
+.content {
+  padding: 16px;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Currency */
+.currency-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.currency-options {
+  display: flex;
+  gap: 8px;
+}
+
+.currency-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background: #f6f6f6;
+  color: #555;
+  font-weight: 600;
+}
+
+.currency-pill img {
+  width: 18px;
+  height: 18px;
+}
+
+.currency-pill.active {
+  background: #fff4d0;
+  border-color: #f7e2a0;
+  color: #000;
+}
+
+/* Network Row */
+.network-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  padding: 12px 0;
+}
+
+.network-value {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.network-value img {
+  width: 18px;
+  height: 18px;
+}
+
+/* Wallet Block */
+.wallet-block {
+  /* border-top: 1px solid var(--border); */
+  padding: 12px 0 4px;
+}
+.wallet-block .label {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 4px;
+  display: block;
+}
+.wallet-value {
+  font-weight: 600;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.copy-icon {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Withdraw Amount Block */
+.amount-block {
+  border-top: 1px solid var(--border);
+  padding: 12px 0 4px;
+}
+.amount-block .label {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.amount-input-wrap {
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+.amount-input-wrap input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 0 96px 0 12px;
+  width: 100%;
+  background: transparent;
+}
+.amount-input-wrap input::placeholder {
+  color: #bbb;
+}
+.amount-unit {
+  position: absolute;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  color: #000;
+}
+.amount-unit img {
+  width: 18px;
+  height: 18px;
+}
+
+/* Info Row */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 8px;
+  color: #6b7280;
+}
+
+.available {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #2563eb;
+  font-weight: 600;
+}
+.available img {
+  width: 14px;
+  height: 14px;
+}
+.fee {
+  color: #666;
+}
+
+/* Receive Info */
+.receive {
+  margin-top: 12px;
+  font-size: 15px;
+  color: #111;
+}
+.receive span {
+  font-weight: 700;
+}
+
+/* Confirm Button */
+.confirm-btn {
+  width: 100%;
+  height: 54px;
+  border: none;
+  border-radius: 999px;
+  margin-top: 20px;
+  background: #dddfe3;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: not-allowed;
+}
+.confirm-btn.active {
+  background: #111;
+  cursor: pointer;
+}
+.confirm-btn.active:hover {
+  filter: brightness(0.95);
+}
+
+/* iPhone width centering */
+@media (min-width: 768px) {
+  .content {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+
+:root {
+  --bg: #f7f8fa;
+  --card-bg: #fff;
+  --border: #e9e9eb;
+  --gray-600: #666;
+  --gray-400: #a0a0a0;
+  --text: #0d0e10;
+  --black: #111;
+}
+
+.withdraw-page {
+  background: var(--bg);
+  min-height: 100vh;
+  color: var(--text);
+  font-family: inherit;
+}
+
+/* Header */
+.withdraw-header {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--card-bg);
+  /* border-bottom: 1px solid var(--border); */
+  padding: 0 16px;
+}
+
+.header-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+.header-icon {
+  font-size: 20px;
+}
+
+/* Content */
+.content {
+  padding: 16px;
+}
+
+/* Section title */
+.section-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Currency */
+.currency-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.currency-options {
+  display: flex;
+  gap: 8px;
+}
+
+.currency-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background: #f6f6f6;
+  color: #555;
+  font-weight: 600;
+}
+
+.currency-pill img {
+  width: 18px;
+  height: 18px;
+}
+
+.currency-pill.active {
+  background: #fff4d0;
+  border-color: #f7e2a0;
+  color: #000;
+}
+
+/* Network */
+.network-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  padding: 12px 0;
+}
+
+.network-value {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}
+
+.network-value img {
+  width: 18px;
+  height: 18px;
+}
+
+/* Add Wallet Button */
+.add-wallet-btn {
+  width: 100%;
+  border: 2px dashed rgba(34, 197, 94, 0.6);
+  color: #16a34a;
+  border-radius: 12px;
+  padding: 14px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+.add-wallet-btn:hover {
+  background: #f0fdf4;
+}
+.add-icon {
+  width: 20px;
+  height: 20px;
+}
+.add-text {
+  font-weight: 600;
+  color: #000;
+}
+
+/* Wallet Block */
+.wallet-block {
+  /* border-top: 1px solid var(--border); */
+  padding: 18px 0 4px;
+}
+.wallet-block .label {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 4px;
+  display: block;
+}
+.wallet-value {
+  font-weight: 600;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.copy-icon {
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Amount Block */
+.amount-block {
+  border-top: 1px solid var(--border);
+  padding: 12px 0 4px;
+}
+.amount-block .label {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.amount-input-wrap {
+  position: relative;
+  background: #fff;
+  border-radius: 10px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+.amount-input-wrap input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 0 96px 0 12px;
+  width: 100%;
+  background: transparent;
+}
+.amount-input-wrap input::placeholder {
+  color: #bbb;
+}
+.amount-unit {
+  position: absolute;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  color: #000;
+}
+.amount-unit img {
+  width: 18px;
+  height: 18px;
+}
+
+/* Info Row */
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  margin-top: 8px;
+  color: #6b7280;
+}
+
+.available {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #2563eb;
+  font-weight: 600;
+}
+.available img {
+  width: 14px;
+  height: 14px;
+}
+.fee {
+  color: #666;
+}
+
+/* Receive */
+.receive {
+  margin-top: 12px;
+  font-size: 15px;
+  color: #111;
+}
+.receive span {
+  font-weight: 700;
+}
+
+/* Confirm Button */
+.confirm-btn {
+  width: 100%;
+  height: 54px;
+  border: none;
+  border-radius: 999px;
+  margin-top: 20px;
+  background: #dddfe3;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: not-allowed;
+}
+.confirm-btn.active {
+  background: #111;
+  cursor: pointer;
+}
+.confirm-btn.active:hover {
+  filter: brightness(0.95);
+}
+
+/* Responsive Center */
+@media (min-width: 768px) {
+  .content {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}

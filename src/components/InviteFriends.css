@@ -1,0 +1,261 @@
+/* ================================
+   Invite Page (Exact UI)
+================================ */
+
+.invite-page {
+  min-height: 100vh;
+  padding: 16px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Back button */
+.invite-back {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.invite-back-btn {
+  padding: 8px;
+  border-radius: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.invite-back-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+.invite-back-icon {
+  width: 24px;
+  height: 24px;
+  stroke: #444;
+}
+
+/* Header */
+.invite-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.invite-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 6px;
+}
+.invite-subtitle {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.45;
+}
+
+/* Rules Card */
+.invite-rules-card {
+  background: #1d1d1d;
+  padding: 10px;
+  margin-top: 80%;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+.invite-rules-title-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+.invite-rules-title {
+  color: #facc15;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Table */
+.invite-table-wrap {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.invite-table-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #facc15; /* yellow-400 */
+  padding: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #111;
+}
+
+.invite-th {
+  text-align: center;
+}
+
+.invite-table-body {
+  background: #fff;
+  border-radius: 0 0 10px 10px;
+}
+
+.invite-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 11px;
+  padding: 6px 0;
+  color: #374151;
+  border-bottom: 1px solid #f3f4f6;
+}
+.invite-row:last-child {
+  border-bottom: none;
+}
+.invite-td {
+  text-align: center;
+}
+.invite-td.rate {
+  font-family: monospace;
+}
+
+/* Invite button */
+.invite-btn {
+  width: 100%;
+  margin-top: 50px;
+  background: #1f2937;
+  color: white;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  transition: all 0.2s ease-in-out;
+}
+.invite-btn:hover {
+  background: #374151;
+  transform: scale(1.02);
+}
+.invite-btn:active {
+  transform: scale(0.97);
+}
+
+/* Responsive max width */
+@media (min-width: 768px) {
+  .invite-page {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+
+/* Modal Overlay */
+.invite-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  /* backdrop-filter: blur(4px); */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Modal Container */
+.invite-modal {
+  background: #fff;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.35s ease;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+
+/* Close Button */
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.3rem;
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  cursor: pointer;
+  color: #555;
+}
+
+/* Modal Texts */
+.modal-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+  margin-top: 10px;
+}
+
+.modal-subtitle {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+/* QR */
+.qr-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 14px;
+}
+
+.qr-note {
+  font-size: 12px;
+  color: #6b7280;
+  margin-bottom: 16px;
+}
+
+/* Input fields */
+.invite-field {
+  text-align: left;
+  margin-bottom: 14px;
+}
+
+.invite-field label {
+  display: block;
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.field-box {
+  display: flex;
+  align-items: center;
+  background: #f3f4f6;
+  border-radius: 10px;
+  padding: 6px 8px;
+}
+
+.field-box input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 13px;
+  color: #111;
+}
+
+.field-box button {
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #555;
+  margin-left: 5px;
+}

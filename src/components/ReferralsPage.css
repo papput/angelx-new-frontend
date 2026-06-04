@@ -1,0 +1,76 @@
+.ref-container {
+  width: 100%;
+  min-height: 100vh;
+  background: #fff;
+  position: relative;
+  font-family: sans-serif;
+}
+
+/* Back Button */
+.ref-back-btn {
+  position: absolute;
+  top: 20px;
+  left: 16px;
+  z-index: 10;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.ref-back-icon {
+  width: 11px;
+  height: 17px;
+}
+
+/* Banner */
+.ref-banner {
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  padding-top: 50px;
+}
+
+.ref-banner-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  align-items: center;
+}
+
+.ref-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.ref-subtitle {
+  color: #ffe6d8;
+  font-size: 14px;
+}
+
+.ref-banner-img {
+  width: 130px;
+  height: auto;
+  margin-right: -10px;
+}
+
+/* EMPTY STATE */
+.ref-empty-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.ref-empty-img {
+  width: 130px;
+  opacity: 0.6;
+}
+
+.ref-empty-text {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #999;
+}

@@ -1,0 +1,305 @@
+/* ============================================
+   PAGE WRAPPER
+============================================ */
+.profile-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #f9fafb;
+  padding-bottom: 70px; /* space for footer */
+}
+
+/* ============================================
+   HERO TOP SECTION
+============================================ */
+.profile-hero {
+  width: 100%;
+  padding: 12px;
+  padding-top: 18px;
+  background: linear-gradient(#faf8d7, #fbfbfb);
+  border-radius: 12px;
+  position: relative;
+}
+
+/* top icons */
+.profile-top-icons {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon-help {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.icon-gear {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  stroke: #374151;
+  fill: none;
+}
+
+/* avatar section */
+.profile-avatar-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+}
+
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.profile-number {
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  text-align: center;
+}
+
+/* balances row */
+.profile-balance-section {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.balance-block {
+  text-align: center;
+}
+
+.balance-label {
+  font-size: 14px;
+  color: #a5aec0;
+  display: block;
+}
+
+.balance-value {
+  font-size: 19px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.balance-value.muted {
+  color: #374151;
+}
+
+/* vertical dividers */
+.divider-y {
+  width: 1px;
+  height: 48px;
+  background: #e0e4ea;
+}
+
+.divider-y.dark {
+  background: #000;
+}
+
+/* ============================================
+   BODY AREA
+============================================ */
+.profile-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ============================================
+   PAYX CARD
+============================================ */
+.payx-card {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.payx-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.payx-logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.payx-balance {
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffeea9;
+  padding-left: 5px;
+  font-weight: bold;
+
+}
+
+.payx-rate {
+  font-size: 13px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  margin-top: 0px;
+  padding-left: 5px;
+  font-weight: lighter;
+}
+
+.payx-ques {
+  width: 15px;
+  height: 15px;
+  margin-left: 4px;
+}
+
+.withdraw-btn {
+  padding: 6px 14px;
+  font-size: 14px;
+  color: #bb7411;
+  background: linear-gradient(to right, #ffefd6, #fed7aa);
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* To Pro button */
+.to-pro-btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px 0;
+  font-size: 13px;
+  font-weight: 700;
+  background: rgb(63, 74, 134);
+  color: #fff;
+  border-radius: 8px;
+  border: none;
+  transition: 0.2s;
+}
+.to-pro-btn:hover {
+  background: rgb(65,75,129);
+}
+
+/* ============================================
+   SUMMARY CARD
+============================================ */
+.summary-card {
+  background-image: url("../assets/mine/commission_bg.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.summary-label.reward-label {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* space between text and image */
+}
+
+
+.summary-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 30px;
+}
+
+.summary-block {
+  text-align: center;
+}
+
+.summary-label {
+  font-size: 14px;
+  color: #000000;
+  display: block;
+}
+
+.summary-value {
+  font-size: 17px;
+  font-weight: 700;
+  color: #374151;
+  margin-top: 3px;
+}
+
+.reward-label img {
+  width: 13px;
+  height: 13px;
+}
+
+.summary-chip {
+  background: #000;
+  color: #fff;
+  padding: 6px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.summary-date {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: #374151;
+}
+
+/* ============================================
+   MENU LIST
+============================================ */
+.menu-list {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item {
+  padding: 21px 12px;
+  background: #ffffff;
+  /* box-shadow: 0 1px 2px rgba(0,0,0,0.06); */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.18s ease;
+  font-size: 14px;
+}
+
+
+
+.menu-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.menu-text {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.menu-arrow {
+  width: 7px;
+  /* height: 20px; */
+  stroke: #9ca3af;
+  fill: none;
+}

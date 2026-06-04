@@ -1,0 +1,71 @@
+.outer {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  /* min-height: 100vh; */
+}
+
+/* Scrollable content */
+.scrollArea {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 100px;
+  background: #fff;
+}
+
+/* Top logo + text container */
+.topWrapper {
+  margin-top: 40px;
+  padding: 0 2px;
+  text-align: center;
+}
+
+.logo_login {
+  width: 85%;            /* Bigger image */
+  max-width: 350px;      /* Increases maximum size */
+  height: auto;
+  /* margin-bottom: 20px; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;    /* Perfect center */
+}
+
+
+.heading {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.subtext {
+  font-size: 14px;
+  color: #111;
+  line-height: 20px;
+  /* padding: 0 5px; */
+}
+
+/* Bottom section */
+.bottomWrapper {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.loginButton {
+  background: black;
+  color: white;
+  padding: 10px 14px;
+  width: 230px;
+  border-radius: 9999px;
+  font-size: 17px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.note {
+  font-size: 14px;
+  color: red;
+  margin-top: 12px;
+  padding: 0 20px;
+}

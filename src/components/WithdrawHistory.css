@@ -1,0 +1,156 @@
+.withdraw-history-page {
+  background: #f7f8fa;
+  min-height: 100vh;
+  padding-bottom: 100px;
+  font-family: "Inter", sans-serif;
+}
+
+.wh-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.back-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.header-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.wh-loading,
+.wh-empty {
+  text-align: center;
+  padding: 30px 0;
+  color: #999;
+}
+
+.wh-list {
+  padding: 12px;
+}
+
+.wh-card {
+  background: #fff;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.wh-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.copy-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+}
+
+.txid {
+  flex: 1;
+  font-weight: 500;
+  color: #333;
+}
+
+.status {
+  font-weight: 600;
+}
+
+.status.green {
+  color: #22c55e;
+}
+
+.status.orange {
+  color: #f59e0b;
+}
+
+.status.red {
+  color: #ef4444;
+}
+
+.wh-inner-box {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 10px 0;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 0;
+  font-size: 14px;
+}
+
+.label {
+  color: #777;
+}
+
+.val-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.net-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.amount-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.amount-val {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+}
+
+.usdt-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.cancel-btn {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  background: #ef4444;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  padding: 10px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cancel-btn:hover {
+  opacity: 0.85;
+}
+
+.wh-nomore {
+  text-align: center;
+  color: #aaa;
+  font-size: 13px;
+  margin: 10px 0 40px;
+}

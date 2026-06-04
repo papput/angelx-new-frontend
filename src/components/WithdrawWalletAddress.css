@@ -1,0 +1,183 @@
+:root {
+  /* Colors tuned for that iOS light look */
+  --bg: #f7f8fa;
+  --paper: #ffffff;
+  --hairline: #ededf0;
+  --title: #0c0d0f;
+  --muted: #7a7f87;
+  --placeholder: #c9cbd1;
+  --pillDisabledBg: #e4e5e9;
+  --pillDisabledFg: #c2c5cb;
+  --pillOnBg: #0d0e10;
+  --pillOnFg: #ffffff;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+/* Root */
+.bind-root {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--title);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top bar (56px like iOS) */
+.bind-topbar {
+  height: 56px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--hairline);
+  display: grid;
+  grid-template-columns: 56px 1fr 56px;
+  align-items: center;
+}
+
+.bind-back {
+  width: 56px;
+  height: 56px;
+  border: none;
+  background: transparent;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.back-arrow {
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 1;
+  transform: translateX(-2px); /* optical center like iOS */
+}
+
+.bind-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 800;
+}
+.bind-right-space {
+}
+
+/* Page wrap */
+.bind-wrap {
+  width: 100%;
+  max-width: 560px; /* XR-ish max for desktop preview */
+  margin: 0 auto;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+
+/* Network (top key/value row) */
+.kv-row.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid var(--hairline);
+}
+.kv-label {
+  font-size: 16px;
+  color: var(--title);
+}
+.kv-value.network {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+.kv-value.network img {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+/* Field row where label + input SHARE the same width & height */
+.field {
+  display: grid;
+  grid-template-columns: 120px 1fr; /* label fixed, input fills */
+  column-gap: 14px;
+  align-items: center;
+  padding: 16px;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+.field-label {
+  white-space: pre-line; /* split 'Wallet' + 'address' like screenshot */
+  font-size: 16px;
+  color: var(--title);
+  line-height: 1.2;
+}
+.field-input {
+  height: 48px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  color: var(--title);
+}
+.field-input::placeholder {
+  color: var(--placeholder);
+}
+
+.Commit-wrapper {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+/* Commit pill */
+.commit {
+  width: 330px;
+  margin: 16px auto 0;
+  height: 50px;
+  border-radius: 999px;
+  border: none;
+  background: var(--pillDisabledBg);
+  color: var(--pillDisabledFg);
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+  cursor: not-allowed;
+}
+.commit.on {
+  background: var(--pillOnBg);
+  color: var(--pillOnFg);
+  cursor: pointer;
+}
+
+
+
+/* Note paragraph */
+.bind-note {
+  padding: 16px;
+  color: var(--muted);
+  line-height: 1.55;
+  font-size: 16px;
+  background: var(--bg);
+}
+
+/* Small screens — iPhone widths */
+@media (max-width: 420px) {
+  .bind-wrap {
+    box-shadow: none;
+  }
+  .field {
+    grid-template-columns: 110px 1fr;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

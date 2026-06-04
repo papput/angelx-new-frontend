@@ -1,0 +1,27 @@
+{
+  "name": "angelx-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "dev:clean": "lsof -ti:3000 | xargs kill -9 2>/dev/null; pkill -f 'next dev' 2>/dev/null; rm -rf .next node_modules/.cache && next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "build:sitemap": "node sitemap-generator.js"
+  },
+  "dependencies": {
+    "@fontsource/manrope": "^5.2.8",
+    "@fontsource/outfit": "^5.2.8",
+    "axios": "^1.13.2",
+    "next": "^15.1.7",
+    "qrcode.react": "^4.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.1.7",
+    "sitemap": "^9.0.0"
+  }
+}

@@ -1,0 +1,314 @@
+/* --------------------------------------
+    PAGE WRAPPER
+--------------------------------------- */
+.banklist-page {
+  padding: 16px;
+  background: #f5f6fa;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.bl-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* --------------------------------------
+    LOADING
+--------------------------------------- */
+.bl-loading {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 15px;
+  color: #666;
+}
+
+/* --------------------------------------
+    EMPTY STATE
+--------------------------------------- */
+.bl-empty {
+  width: 100%;
+  height: 100vh; /* if you want it to fill parent height */
+  display: flex;
+  flex-direction: column; /* keeps text below image */
+  /* justify-content: center; vertical center */
+  align-items: center;     /* horizontal center */
+  padding-top: 33%;
+  font-size: 15px;
+  color: #b8b8b8;
+  text-align: center;
+  margin: auto;
+  
+}
+
+.bl-empty img {
+  display: block;
+  margin-bottom: 12px; /* space between image & text */
+  width: 110px;
+}
+
+
+.bl-add {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  font-size: 15px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.bl-add.bottom {
+  display: block;
+  margin: 20px 0;
+  text-align: center;
+}
+
+/* --------------------------------------
+    CARD WRAPPER
+--------------------------------------- */
+.bl-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 14px;
+  /* box-shadow: 0 1px 5px rgba(0,0,0,0.08); */
+  /* border: 1px solid #ececec; */
+  transition: all 0.2s ease;
+}
+
+
+/* --------------------------------------
+    ROW LAYOUT
+--------------------------------------- */
+.bl-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* --------------------------------------
+    AVATAR (first letter)
+--------------------------------------- */
+.bl-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #4f8ef7;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------
+    BANK META
+--------------------------------------- */
+.bl-meta {
+  flex: 1;
+}
+
+.bl-acc,
+.bl-ifsc,
+.bl-name,
+.bl-time {
+  font-size: 13.5px;
+  color: #333;
+  margin-bottom: 2px;
+}
+
+.bl-time {
+  font-size: 12px;
+  color: #888;
+}
+
+/* --------------------------------------
+    ACTION BUTTONS
+--------------------------------------- */
+.bl-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+/* SELECT button */
+.bl-select {
+  background: #4f8ef7;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.bl-select:hover {
+  background: #3d7be4;
+}
+
+/* DELETE button */
+.bl-del {
+  border: none;
+  background: #ffdddd;
+  color: #d9534f;
+  padding: 4px 8px;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.bl-del:hover {
+  background: #ffcccc;
+}
+
+/* --------------------------------------
+    FOOTER
+--------------------------------------- */
+.bl-nomore {
+  text-align: center;
+  margin: 16px 0;
+  font-size: 13px;
+  color: #999;
+}
+
+
+
+/* Page Background */
+.banklist-page {
+  background: #f5f6fa;
+  padding: 16px;
+  padding-bottom: 120px; /* space above fixed button */
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Card */
+.bl-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 16px 16px 10px 16px;
+  margin-bottom: 14px;
+  /* border: 1px solid #efefef; */
+}
+
+/* Top section */
+.bl-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Avatar */
+.bl-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #c89ac5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+/* Info Text */
+.bl-info {
+  flex: 1;
+}
+
+.bl-acc {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111;
+}
+
+.bl-ifsc,
+.bl-name {
+  font-size: 14px;
+  color: #666;
+  margin-top: 2px;
+}
+
+/* Select icon */
+.bl-right {
+  flex-shrink: 0;
+}
+
+.bl-select-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+/* Bottom area */
+.bl-bottom {
+  border-top: 1px solid #eee;
+  margin-top: 12px;
+  padding-top: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bl-time {
+  font-size: 13px;
+  color: #888;
+}
+
+/* Delete button */
+.bl-delete-btn {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.bl-delete-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* "No more data" */
+.bl-nomore {
+  text-align: center;
+  font-size: 13px;
+  color: #999;
+  margin-top: 10px;
+}
+
+/* Fixed Add Button */
+.add-fixed {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 60px);
+  background: #111;
+  padding: 14px 0;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.add-fixed a {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+
+.bg_white{
+  background-color: white !important;
+
+}

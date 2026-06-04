@@ -1,0 +1,336 @@
+.sell-page {
+  width: 100%;
+  max-width: 414px;
+  margin: 0 auto;
+  /* padding: 1rem; */
+  background: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+}
+.sell-page-bottom {
+  width: 100%;
+  max-width: 414px;
+  margin: 0 auto;
+  padding: 1rem;
+  background: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+}
+
+/* ✅ Banner */
+.banner-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 100%;
+  display: block;
+}
+
+/* ✅ Select Payee Row */
+.select-header {
+  margin-top: 7px;
+  padding: 0 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.select-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.add-icon {
+  width: 22px;
+  height: 24px;
+  cursor: pointer;
+}
+
+/* ✅ Add Bank Box EXACT */
+.add-bank-box {
+  width: 100%;
+  margin-top: 16px;
+  border: 1.5px dashed #69d49e;
+  border-radius: 8px;
+  padding: 26px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.add_border{
+  border-top: 1px solid rgb(239, 242, 246);
+  margin-top: 13px;
+}
+
+.green-plus-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #69d49e;
+  position: relative;
+}
+
+.h-line {
+  width: 12px;
+  height: 2px;
+  background: #69d49e;
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  border-radius: 2px;
+}
+
+.v-line {
+  width: 2px;
+  height: 12px;
+  background: #69d49e;
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  border-radius: 2px;
+}
+
+.add-bank-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* ✅ Sell Amount Section */
+.sell-section {
+  margin-top: 20px;
+}
+
+.sell-title {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgb(114, 114, 114);
+}
+
+.amount-box {
+  margin-top: 12px;
+  height: 50px;
+  /* border-radius: 14px; */
+  border-bottom: 1px solid #e1e1e3;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.amount-input {
+  flex: 1;
+  padding-left: 12px;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 16px;
+}
+
+.amount-input::placeholder {
+  color: #b8b8be;
+  font-weight: 600;
+}
+
+.unit-box {
+  position: absolute;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.usdt-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.unit-text {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* ✅ Meta Row */
+.amount-meta {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.blue {
+  color: #3a72ec;
+  font-weight: 500;
+}
+
+.bolder {
+  font-weight: 600;
+}
+
+.usdt-small {
+  width: 13px;
+  height: 13px;
+}
+
+.rate {
+  color: #666;
+}
+
+/* ✅ Fee table card */
+.fee-card {
+  margin-top: 20px;
+  border: 1.5px solid rgb(239, 242, 246);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 10px solid rgb(239, 242, 246);
+}
+
+.fee-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fee-table td {
+  padding: 10px;
+  font-size: 12px;
+  border-right: 1px solid rgb(239, 242, 246);
+  text-align: center;
+}
+
+.fee-table tr + tr td {
+  border-top: 1px solid rgb(239, 242, 246) ;
+}
+
+.fee-left {
+  color: #1a1a1a;
+}
+
+.fee-right {
+  text-align: right;
+  color: #e54444;
+  font-weight: 600;
+}
+
+/* ✅ Confirm Button */
+.confirm-btn {
+  margin-top: 38px;
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 999px;
+  background: #d7d7db;
+  font-size: 17px;
+  font-weight: 600;
+  color: white;
+}
+
+/* ✅ Footer Note */
+.note {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #d7d7db;
+  line-height: 1.5;
+}
+
+.confirm-btn {
+  margin-top: 38px;
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 999px;
+  background: #d7d7db; /* disabled */
+  font-size: 17px;
+  font-weight: 600;
+  color: white;
+  transition: 0.2s ease;
+}
+
+.confirm-btn:disabled {
+  background: #d7d7db;
+  cursor: not-allowed;
+}
+
+.confirm-btn.active {
+  background: #000000; /* ✅ black button when active */
+  cursor: pointer;
+}
+
+.selected-bank {
+  background: #fff;
+  border-radius: 12px;
+  padding-top: 12px;
+  margin-bottom: 12px;
+}
+.sb-row {
+  /* display: flex;
+  gap: 24px; */
+  /* margin-bottom: 6px; */
+}
+.sb-label {
+  font-size: 12px;
+  color: #6b7280;
+}
+.sb-value {
+  font-weight: 600;
+  color: #111827;
+}
+.sb-change {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #2563eb;
+}
+.receive-box {
+  margin-top: 8px;
+  font-weight: 700;
+  color: #111827;
+}
+
+
+.selected-bank {
+  width: 100%;
+}
+
+/* Make each row a left-right layout */
+.sb-row {
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+  /* padding: 6px 0;
+  width: 100%;
+  border-bottom: 1px solid #eee; optional */
+}
+
+/* Left content (label + value vertically) */
+.sb-left {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  flex: 1;
+  border-top: 1px solid #eee;
+  padding: 16px 0px;
+}
+
+/* Label on left */
+.sb-label {
+  font-weight: 500;
+  font-size: 16px;
+  color: #7b7b7b;
+  font-weight: 400;
+}
+
+/* Value on right */
+.sb-value {
+  margin-left: auto;
+  text-align: right;
+  font-weight: 600;
+}

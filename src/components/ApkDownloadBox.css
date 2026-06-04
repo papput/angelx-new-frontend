@@ -1,0 +1,110 @@
+.apk-box-wrapper {
+  position: fixed;
+  bottom: 70px;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: center; /* centers horizontally */
+
+  z-index: 999999;
+  pointer-events: none; /* optional (prevents overlay issues) */
+}
+
+/* MAIN CARD */
+.apk-box {
+  width: 92%;
+  max-width: 650px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 6px 15px;
+  background: #f3f3f3;
+  border-radius: 5px;
+  /* border: 1px solid rgb(207, 207, 208); */
+
+  position: relative;
+  pointer-events: all;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+}
+
+@media (min-width: 768px) {
+  .apk-box {
+  width: 366px;
+}
+}
+
+/* LEFT SIDE */
+.apk-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.apk-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* TEXT */
+.apk-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.apk-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+}
+
+.apk-subtitle {
+  font-size: 11px;
+  color: #666;
+  margin-top: 2px;
+}
+
+/* DOWNLOAD BUTTON (RIGHT SIDE FIXED) */
+.apk-download-btn {
+  background: #f5b400;
+  color: #000;
+  margin-top: 15px;
+  /* margin-right: 10px; */
+  padding: 6px 20px;
+  border-radius: 999px;
+
+  font-size: 12px;
+  /* font-weight: 600; */
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  transition: all 0.2s ease;
+}
+
+.apk-download-btn:hover {
+  background: #e0a800;
+  transform: scale(1.05);
+}
+
+/* CLOSE BUTTON */
+.apk-close {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+
+  border: none;
+  background: none;
+
+  font-size: 18px;
+  color: #999;
+  cursor: pointer;
+}
+
+.apk-close:hover {
+  color: #333;
+}

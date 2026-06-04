@@ -1,0 +1,677 @@
+/* ===== WithdrawUSDT.css (plain CSS, Tailwind palette mapped) ===== */
+
+/* Colors (Tailwind-like mapped to raw hex) */
+:root {
+  --gray-25: #fcfcfd;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+
+  --blue-500: #3b82f6;
+  --green-500: #22c55e;
+  --green-600: #16a34a;
+  --yellow-100: #fef9c3;
+  --yellow-300: #fde047;
+  --yellow-400: #facc15;
+  --amber-100: #fef3c7;
+
+  --black: #000;
+  --white: #fff;
+}
+
+/* Page wrapper */
+.wdr-page {
+  padding: 16px;
+  background: #f7f8fa;
+  min-height: 100vh;
+  color: var(--gray-900);
+}
+
+/* Top bar */
+.wdr-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.wdr-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+.wdr-top-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.wdr-add-img {
+  width: 40px;
+  height: 20px;
+  object-fit: contain;
+  cursor: pointer;
+  filter: grayscale(15%);
+}
+.wdr-hr {
+  border: 0;
+  height: 1px;
+  background: var(--gray-200);
+  margin: 8px 0 14px;
+}
+
+/* Content */
+.content_usdt-wrapper {
+  background-color: #f2f3f5;
+  min-height: calc(100dvh - 56px);
+}
+
+.dep-banner {
+  width: 100%;
+  overflow: hidden;
+}
+.dep-banner img {
+  width: 100%;
+  max-height: 96px;
+  object-fit: cover;
+  object-position: left;
+  display: block;
+}
+
+.add-bank-box {
+  width: 100%;
+  margin-top: 16px;
+  border: 1.5px dashed #69d49e;
+  border-radius: 8px;
+  padding: 26px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.add-bank-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #101010;
+}
+
+.currency-row .label {
+  font-size: 15px;
+  color: #444;
+}
+
+.currency-pill {
+  cursor: pointer;
+  appearance: none;
+}
+.currency-pill-icon,
+.withdraw-page .currency-pill img,
+.withdraw-page .amount-unit img {
+  width: 18px;
+  height: 18px;
+  max-width: 18px;
+  max-height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.available-coin-icon,
+.withdraw-page .available img {
+  width: 14px;
+  height: 14px;
+  max-width: 14px;
+  max-height: 14px;
+  object-fit: contain;
+}
+
+.blue-text {
+  color: #2563eb;
+}
+.left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.blue {
+  color: #3a72ec;
+  font-weight: 500;
+}
+.bolder {
+  font-weight: 600;
+}
+.usdt-small {
+  width: 13px;
+  height: 13px;
+  max-width: 13px;
+  max-height: 13px;
+  object-fit: contain;
+}
+
+/* Underline-style fields (matches Sell USDT) */
+.withdraw-page .withdraw-field-label {
+  display: block;
+  font-size: 15px;
+  font-weight: 400;
+  color: #727272;
+  margin-bottom: 8px;
+}
+
+.withdraw-page .wallet-block {
+  padding: 14px 0 0;
+  border-top: none;
+  cursor: pointer;
+}
+
+.withdraw-page .wallet-field-line {
+  border-bottom: 1px solid #e1e1e3;
+  padding: 8px 0 12px;
+}
+
+.withdraw-page .wallet-value {
+  word-break: break-all;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.4;
+}
+
+.withdraw-page .amount-block {
+  border-top: none;
+  padding: 16px 0 0;
+}
+
+.withdraw-page .amount-input-wrap {
+  position: relative;
+  height: 50px;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #e1e1e3;
+  background: #fff;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.withdraw-page .withdraw-amount-input {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+  padding: 0 88px 0 0;
+}
+
+.withdraw-page .withdraw-amount-input::placeholder {
+  color: #b8b8be;
+  font-weight: 600;
+}
+
+.withdraw-page .amount-unit {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.withdraw-page .amount-unit-text {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.withdraw-page .withdraw-meta {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+}
+
+.withdraw-page .withdraw-meta-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.withdraw-page .withdraw-meta .fee {
+  color: #666;
+  font-size: 15px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.content_usdt {
+  margin: 16px 0px;
+  padding: 16px;
+  background-color: white;
+}
+
+/* Currency row */
+.wdr-currency-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.wdr-currency-label {
+  font-size: 15px;
+  color: var(--gray-600);
+}
+.wdr-currency-pills {
+  display: flex;
+  gap: 8px;
+}
+.wdr-pill {
+  appearance: none;
+  border: 0;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 10px;
+  background: var(--gray-100);
+  color: var(--gray-600);
+  border-radius: 10px;
+  position: relative;
+  transition: box-shadow 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.wdr-pill .wdr-pill-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+.wdr-pill.active {
+  color: #111;
+  background: var(--yellow-100);
+  box-shadow: inset 0 0 0 1px #f5e6a7;
+}
+.wdr-pill.usdt.active {
+  box-shadow: inset 0 0 0 1px #eadc8a;
+}
+.wdr-pill.payx.active {
+  box-shadow: inset 0 0 0 1px #eadc8a;
+}
+/* small check tick in the top-right corner */
+.wdr-pill.active::after {
+  content: "";
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--yellow-400);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
+}
+
+/* Add wallet card */
+.wdr-add-wallet {
+  width: 100%;
+  border: 2px dashed rgba(16, 185, 129, 0.45); /* green-400/45 */
+  color: #059669; /* green-600 */
+  border-radius: 12px;
+  padding: 14px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  margin-top: 8px;
+  margin-bottom: 18px;
+}
+.wdr-add-wallet:hover {
+  background: #f0fdf4;
+  border-color: #34d399;
+}
+.wdr-plus {
+  width: 20px;
+  height: 20px;
+  color: #059669;
+}
+.wdr-add-wallet-text {
+  font-weight: 600;
+  color: #101010;
+}
+
+/* Section title */
+.wdr-section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+
+/* Input */
+.wdr-input-wrap {
+  position: relative;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 0 0 1px var(--gray-200) inset;
+  padding: 0 12px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.wdr-input {
+  width: 100%;
+  height: 44px;
+  border: 0;
+  outline: none;
+  font-size: 16px;
+  color: #2a2a2a;
+  caret-color: #3b82f6; /* blue caret like iOS */
+}
+.wdr-input::placeholder {
+  color: var(--gray-400);
+}
+.wdr-unit {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: #1a1a1a;
+  font-size: 14px;
+}
+.wdr-unit-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+/* Info row */
+.wdr-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 6px 0 18px;
+  font-size: 13px;
+}
+.wdr-available {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--blue-500);
+}
+.wdr-available-label {
+  color: var(--blue-500);
+}
+.wdr-available-num {
+  font-weight: 600;
+  color: var(--blue-500);
+}
+.wdr-available-badge {
+  width: 18px;
+  height: 18px;
+  background: #e0edff;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.wdr-available-badge img {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+}
+.wdr-fee {
+  color: var(--gray-600);
+}
+
+/* Confirm button */
+.wdr-confirm {
+  width: 100%;
+  height: 56px;
+  border: none;
+  outline: none;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: filter 0.15s ease, background 0.15s ease;
+}
+.wdr-confirm.disabled {
+  background: #dddfe3;
+  color: #fff;
+  cursor: not-allowed;
+}
+.wdr-confirm.enabled {
+  background: #111;
+  color: #fff;
+  cursor: pointer;
+}
+.wdr-confirm.enabled:hover {
+  filter: brightness(0.92);
+}
+
+/* Small devices centering */
+@media (min-width: 768px) {
+  .wdr-page {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+
+
+
+/* ===== Password Modal Overlay ===== */
+.password-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 999;
+  /* backdrop-filter: blur(2px); */
+}
+
+/* ===== Modal Box ===== */
+.password-modal {
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 18px 18px 0 0;
+  padding: 16px 18px 24px;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.25s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ===== Modal Header ===== */
+.modal-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.modal-header h3 {
+  font-size: 17px;
+  font-weight: 700;
+}
+.close-btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* ===== Modal Body ===== */
+.modal-body {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.withdraw-info {
+  font-size: 15px;
+  color: #111;
+  margin-bottom: 4px;
+}
+.withdraw-amt {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+  margin-left: 6px;
+}
+.withdraw-amt img {
+  width: 20px;
+  height: 20px;
+}
+.refund-text {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 16px;
+}
+
+/* ===== Dots (Password Boxes) ===== */
+.password-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.dot-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: #f5f5f7;
+  border: 1px solid #eee;
+}
+.dot-box.filled::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 15px auto;
+  background: #000;
+  border-radius: 50%;
+}
+
+/* ===== Numeric Keypad ===== */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  justify-items: center;
+  padding: 0 20px;
+}
+.key {
+  width: 100%;
+  height: 56px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111;
+  background: #f7f7f8;
+  border: none;
+  border-radius: 10px;
+}
+.key:active {
+  background: #e5e5e5;
+}
+.key.del {
+  font-size: 18px;
+  background: #f0f0f1;
+}
+
+
+
+
+.add-wallet-box {
+  border: 1.5px dashed #36b37e;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.add-wallet-box:active {
+  background: #f6fdf9;
+}
+.add-wallet-inner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #36b37e;
+  font-size: 16px;
+  font-weight: 500;
+}
+.plus-circle {
+  font-size: 18px;
+  color: #36b37e;
+  font-weight: 600;
+}
+.add-text {
+  font-weight: 500;
+  color: #36b37e;
+}
+
+
+/* Select address header */
+.select-address-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #f2f3f5;
+  padding-bottom: 10px;
+}
+.section-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #111;
+}
+.address-add-icon {
+  width: 40px;
+  height: auto;
+  max-height: 40px;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.address-add-icon:active {
+  transform: scale(0.92);
+}

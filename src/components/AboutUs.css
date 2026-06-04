@@ -1,0 +1,112 @@
+.about-container {
+  padding: 20px;
+  background: #f8f9fb;
+  font-family: "Poppins", sans-serif;
+}
+
+.about-hero {
+  background: linear-gradient(to right, #fff6fd, #ffffff);
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+  margin: 10px;
+}
+
+.about-hero h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #2e2e2e;
+}
+
+.about-hero h1 span {
+  color: #ffc107;
+}
+
+.about-hero p {
+  font-size: 15px;
+  color: #555;
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.about-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+  margin-bottom: 15px;
+}
+
+.about-section h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.about-section p,
+.about-section li {
+  color: #666;
+  line-height: 1.6;
+  font-size: 14.5px;
+}
+
+.about-section ul {
+  padding-left: 15px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 8px;
+}
+
+.about-grid div {
+  font-size: 14px;
+  color: #555;
+}
+
+@media (min-width: 768px) {
+  .about-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.about-cta {
+  background: #14182a;
+  color: white;
+  padding: 30px 20px;
+  border-radius: 15px;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.about-cta h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.about-cta p {
+  font-size: 15px;
+  color: #d1d1d1;
+}
+
+.cta-btn {
+  margin-top: 15px;
+  background: white;
+  color: #14182a;
+  border: none;
+  padding: 12px 25px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #ffc107;
+  color: #14182a;
+}

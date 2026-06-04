@@ -1,0 +1,362 @@
+/* ========= Color tokens (Tailwind palette to plain CSS) ========= */
+:root {
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --black: #000;
+  --white: #fff;
+  --green-500: #22c55e;
+  --green-300: #86efac;
+  --teal-600: #0d9488;
+  --amber-50: #fffbeb;
+  --amber-400: #fbbf24;
+  --red-500: #ef4444;
+  --indigo-900: #111827; /* for deep text in card */
+  --primary-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  --soft-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* ========= Page scaffold ========= */
+.dep-page {
+  background: #fff;
+  min-height: 100dvh;
+}
+.dep-banner {
+  width: 100%;
+  /* height: 96px; */
+  overflow: hidden;
+}
+.dep-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left;
+  display: block;
+}
+
+/* Illustration holder */
+.dep-hero {
+  position: relative;
+  padding: 16px;
+  background-color: #f2f3f5;
+  height: 100vh;
+}
+.dep-hero-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Card that overlaps the illustration (approx top:70%) */
+.dep-card {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 155px;
+  transform: translateY(-10px);
+  background: var(--white);
+  border-radius: 12px;
+  padding: 12px 12px 20px 12px;
+  /* margin-top: 30px; */
+}
+
+/* ========= Fields ========= */
+.dep-field {
+  margin-top: 16px;
+}
+.dep-label {
+  display: block;
+  font-size: 12px;
+  color: rgb(157, 157, 157);
+  text-transform: none;
+  margin-bottom: 10px;
+  padding-left: 5px;
+}
+
+/* segment (network chips) */
+.dep-seg {
+  display: flex;
+  gap: 12px;
+}
+.dep-chip {
+  position: relative;
+  flex: 1 1 0;
+  height: 44px;
+  border: 1px solid var(--gray-200);
+  background: #fafafa;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--gray-800);
+  transition: all 0.15s ease;
+  overflow: hidden;
+}
+.dep-chip.active {
+  border-color: #fed7aa; /* orange-200 */
+  background: #fff7ed; /* orange-50 */
+}
+.dep-chip-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+/* tiny network pictograms */
+.dep-chip-icon.trc {
+  background: #ef4444; /* red-500 */
+  mask: radial-gradient(circle at 50% 35%, transparent 8px, #000 8px);
+}
+.dep-chip-icon.erc {
+  background: #6b7280; /* gray-500 diamond via ::after */
+  transform: rotate(45deg);
+  border-radius: 4px;
+}
+.dep-chip-icon.erc::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: #e5e7eb;
+  border-radius: 2px;
+}
+.dep-chip-tick {
+  position: absolute;
+  right: 0px;
+  bottom: -1px;
+  width: 22px;
+  /* height: 18px; */
+  border-radius: 0px 0px 2px 0px;
+  /* background: #fde68a; yellow-300 */
+  box-shadow: inset 0 0 0 2px #fff;
+}
+.dep-chip-tick::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 4px;
+  width: 6px;
+  height: 10px;
+  border: 2px solid #0f172a;
+  border-top: 0;
+  border-left: 0;
+  transform: rotate(45deg);
+}
+
+/* network error banner */
+.dep-neterror {
+  width: 100%;
+  padding: 10px 12px;
+  text-align: center;
+  color: var(--red-500);
+  font-weight: 600;
+  border: 1px dashed #fecaca;
+  background: #fff1f2;
+  border-radius: 8px;
+}
+
+/* amount input */
+.dep-input-wrap {
+  position: relative;
+}
+.dep-input {
+  width: 100%;
+  height: 48px;
+  /* border: 1px solid var(--gray-200); */
+  border-radius: 3px;
+  background: #f6f7fa;
+  padding: 0 88px 0 10px;
+  font-size: 13px;
+  color: var(--gray-800);
+  outline: none;
+  border: 0px;
+  font-size: 16px;
+  padding-left: 25px;
+  /* transition: border-color 0.15s ease, background 0.15s ease; */
+}
+.dep-input:focus {
+  /* border-color: #3b82f6; blue-500 */
+  background: #f8fafc;
+}
+.dep-input::placeholder {
+  color: var(--gray-400);
+
+}
+
+.dep-input-suffix {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+}
+.dep-input-suffix img{
+  width: 20px;
+}
+.dep-usdt-dot {
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--teal-600);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+}
+.dep-usdt-text {
+  color: #000;
+  font-size: 13px;
+}
+
+/* hints */
+.dep-hint-row {
+  margin-top: 12px;
+}
+.dep-hint {
+  font-size: 13px;
+  color: var(--gray-600);
+}
+.dep-available {
+  font-size: 12px;
+  color: var(--gray-600);
+  margin-top: 10px;
+}
+.dep-error {
+  margin-top: 8px;
+  color: var(--red-500);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* button */
+.dep-btn {
+  width: 100%;
+  height: 46px;
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+  margin-top: 30px;
+  margin-bottom: 16px;
+  transition: filter 0.15s ease, transform 0.02s ease;
+}
+.dep-btn.disabled {
+  background: #d1d5db;
+  color: #fff;
+  cursor: not-allowed;
+}
+.dep-btn.enabled {
+  background: #111827;
+  color: #fff;
+  cursor: pointer;
+}
+.dep-btn.enabled:hover {
+  filter: brightness(0.95);
+}
+
+/* warning box */
+.dep-warning {
+  background: var(--amber-50);
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: flex;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  font-weight: 700;
+  color: #1f2937;
+}
+.dep-warning-ic {
+  color: var(--amber-400);
+}
+
+/* ========= Responsive alignment ========= */
+@media (min-width: 480px) {
+  .dep-card {
+    left: 24px;
+    right: 24px;
+  }
+}
+@media (min-width: 768px) {
+  .dep-page {
+    /* display: flex;
+    justify-content: center; */
+  }
+  .dep-hero {
+    /* width: 520px; */
+  }
+}
+
+
+.dep-seg {
+  display: flex;
+  gap: 14px;
+}
+
+/* Main chip box */
+.dep-chip {
+  width: 150px;
+  height: 45px;
+  background: #f6f7fa;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-start; */
+  padding: 0 18px;
+  /* gap: 10px; */
+
+  font-size: 16px;
+  font-weight: 600;
+  color: #111;
+
+  position: relative;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+/* Active chip */
+.dep-chip.active {
+  background: #ffffff;
+  border: 1px solid #f0c518; /* gold border */
+}
+
+/* Network Icons */
+.dep-chip-img {
+  width: 26px;
+  height: 26px;
+}
+
+/* Text */
+.dep-chip-text {
+  /* flex: 1; */
+}
+
+/* Yellow tick badge (select_type.png) */
+.dep-chip-tick {
+  /* width: 32px;
+  height: 32px;
+
+  position: absolute;
+  right: -4px;
+  bottom: -4px; */
+}
+
