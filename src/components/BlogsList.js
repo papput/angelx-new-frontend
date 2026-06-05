@@ -107,7 +107,7 @@ export default function BlogsList({ blogs = [] }) {
             <h2>Coming soon</h2>
             <p>
               We&apos;re preparing helpful articles for you. Check back shortly
-              for updates on crypto and USDT trading.
+              for updates on USDT trading and digital asset exchange.
             </p>
           </div>
         ) : (

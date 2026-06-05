@@ -29,7 +29,7 @@
 }
 
 .phone {
-  font-size: clamp(18px, 5vw, 30px);
+  font-size: 18px;
   font-weight: 600;
   color: #111;
 }
@@ -37,7 +37,6 @@
 .balance {
   font-size: 14px;
   color: #666;
-  font-size: clamp(15px, 5vw, 14px);
   font-weight: bold;
 }
 

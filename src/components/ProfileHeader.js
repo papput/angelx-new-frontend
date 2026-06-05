@@ -62,9 +62,7 @@ export default function ProfileHeader() {
       <div className="profile-left">
         <AppImage src={defaultAvatar} alt="User" className="profile-pic" />
         <div className="profile-details">
-          <span className="phone">
-            {userData?.maskedPhone ? `+91 ${userData.maskedPhone}` : "+91 —"}
-          </span>
+          <span className="phone">+91 {userData?.maskedPhone || "—"}</span>
           <span className="balance">${userData?.availableBalance ?? 0}</span>
         </div>
       </div>

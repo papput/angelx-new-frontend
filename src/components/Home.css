@@ -18,8 +18,8 @@
   --border: #ff0000;
   --card: #ffffff;
   --secondary: rgba(0, 0, 0, 0.05);
-  --crypto-green: #07c18c;
-  --crypto-red: #ff4b4b;
+  --rate-green: #07c18c;
+  --rate-red: #ff4b4b;
 }
 
 /* ----------------------------------------------------
@@ -309,11 +309,11 @@
 }
 
 .coin-change.green {
-  color: var(--crypto-green);
+  color: var(--rate-green);
 }
 
 .coin-change.red {
-  color: var(--crypto-red);
+  color: var(--rate-red);
 }
 
 /* numeric columns */

@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import "./Disclaimer.css";
 import BackHeader from "./BackHeader";

@@ -1,0 +1,78 @@
+.guides-index {
+  background: #fff;
+  min-height: 100vh;
+  padding-bottom: 24px;
+}
+
+.guides-index-header {
+  padding: 16px 20px 24px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.guides-index-header h1 {
+  font-size: 1.4rem;
+  margin: 0 0 10px;
+}
+
+.guides-index-header p {
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.guides-silo {
+  max-width: 720px;
+  margin: 0 auto 28px;
+  padding: 0 20px;
+}
+
+.guides-silo h2 {
+  font-size: 1.1rem;
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #eee;
+}
+
+.guides-silo ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.guides-silo li {
+  margin-bottom: 16px;
+}
+
+.guides-silo a {
+  font-weight: 600;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.guides-silo a:hover {
+  color: #2271b1;
+}
+
+.guides-silo li p {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.guides-index-nav {
+  max-width: 720px;
+  margin: 24px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.8rem;
+}
+
+.guides-index-nav a {
+  color: #2271b1;
+  text-decoration: none;
+}

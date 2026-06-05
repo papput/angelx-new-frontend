@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import PageMeta from "./PageMeta";
 // import "./PrivacyPolicy.css"; // optional (থাকলে)

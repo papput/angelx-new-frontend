@@ -1,6 +1,9 @@
 import Script from "next/script";
 import { AuthProvider } from "@/context/AuthContext";
 import AppShell from "@/app/AppShell";
+import JsonLd from "@/components/seo/JsonLd";
+import { globalSchemas } from "@/lib/seo/schemas";
+import { SITE_LOCALE, SITE_URL, getCanonicalUrl } from "@/lib/seo/config";
 import "@/index.css";
 import "@fontsource/manrope/400.css";
 import "@fontsource/manrope/500.css";
@@ -11,12 +14,40 @@ import "@fontsource/outfit/600.css";
 import "@fontsource/outfit/800.css";
 
 export const metadata = {
-  title: "AngelX – Sell USDT to INR Instantly & Securely | Angelx App",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "AngelX Exchange – USDT to INR Digital Asset Platform",
+    template: "%s | AngelX Exchange",
+  },
   description:
-    "AngelX, the official USDT selling platform. Convert USDT to INR instantly with best price, fast payouts, and secure transactions.",
-  metadataBase: new URL("https://angelx.exchange"),
+    "AngelX Exchange is India's trusted USDT trading platform. Convert USDT to INR with live AngelX USDT prices, fast settlement, and the AngelX App.",
+  keywords: [
+    "AngelX",
+    "AngelX Exchange",
+    "USDT to INR",
+    "sell USDT",
+    "AngelX App",
+    "USDT trading platform",
+    "digital asset exchange",
+  ],
+  robots: "index, follow, max-snippet:-1, max-image-preview:large",
   alternates: {
-    canonical: "/",
+    canonical: getCanonicalUrl("/"),
+    languages: { [SITE_LOCALE]: getCanonicalUrl("/") },
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    siteName: "AngelX Exchange",
+    url: getCanonicalUrl("/"),
+    title: "AngelX Exchange – USDT to INR Digital Asset Platform",
+    description:
+      "India's trusted USDT trading platform. Live AngelX USDT prices, fast INR settlement, AngelX App.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AngelX Exchange – USDT to INR",
+    description: "Sell USDT to INR on AngelX — India's USDT trading platform.",
   },
   icons: {
     icon: "/logo_plus.png",
@@ -35,8 +66,9 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en-IN" suppressHydrationWarning>
       <body suppressHydrationWarning>
+        <JsonLd data={globalSchemas()} />
         <AuthProvider>
           <AppShell>{children}</AppShell>
         </AuthProvider>

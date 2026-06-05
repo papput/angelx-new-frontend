@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import "./AboutUs.css";
 import BackHeader from "./BackHeader";

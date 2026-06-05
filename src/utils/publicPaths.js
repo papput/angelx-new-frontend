@@ -11,9 +11,11 @@ const PUBLIC_EXACT = new Set([
   "/terms&conditions",
   "/login",
   "/blogs",
+  "/faq",
+  "/blog",
 ]);
 
-const PUBLIC_PREFIXES = ["/blogs/"];
+const PUBLIC_PREFIXES = ["/blogs/", "/blog/"];
 
 export function isPublicPath(pathname) {
   if (!pathname) return false;

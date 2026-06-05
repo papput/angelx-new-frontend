@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import "./TermsConditions.css";
 import BackHeader from "./BackHeader";
@@ -11,7 +13,7 @@ const TermsConditions = () => {
         description="Read the Terms and Conditions for AngelX Exchange, covering user responsibilities, platform usage rules, and legal agreements for USDT to INR trading."
         keywords="AngelX terms, AngelX conditions, AngelX exchange terms of service, USDT trading terms"
         robots="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-        canonical="https://angelx.exchange/terms&conditions"
+        canonical="https://angelx.exchange/terms-conditions"
       />
       <div className="terms-container">
         <BackHeader title="Terms & Conditions" link="/exchange" />

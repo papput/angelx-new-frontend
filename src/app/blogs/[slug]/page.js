@@ -1,22 +1,27 @@
 import { notFound } from "next/navigation";
 import BlogDetailView from "@/components/BlogDetailView";
 import { fetchBlogBySlug } from "@/lib/blogs";
+import { buildPageMetadata } from "@/lib/seo/metadata";
+import { getCanonicalUrl } from "@/lib/seo/config";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const blog = await fetchBlogBySlug(slug);
   if (!blog) return { title: "Blog Not Found" };
 
-  const siteBase =
-    process.env.NEXT_PUBLIC_BASE_URL || "https://angelx.exchange";
-  const canonical =
-    blog.canonicalUrl || `${siteBase.replace(/\/$/, "")}/blogs/${blog.slug}`;
+  const canonical = blog.canonicalUrl
+    ? getCanonicalUrl(blog.canonicalUrl)
+    : getCanonicalUrl(`/blogs/${blog.slug}`);
 
   return {
-    title: blog.ogTitle || `${blog.title} – AngelX Blog`,
-    description: blog.metaDescription || blog.excerpt || blog.subtitle,
-    robots: blog.robotsMeta || "index, follow",
-    alternates: { canonical: `/blogs/${blog.slug}` },
+    ...buildPageMetadata({
+      title: blog.ogTitle || `${blog.title} – AngelX Blog`,
+      description: blog.metaDescription || blog.excerpt || blog.subtitle,
+      path: `/blogs/${blog.slug}`,
+      type: "article",
+      robots: blog.robotsMeta || "index, follow",
+    }),
+    alternates: { canonical },
     openGraph: {
       title: blog.ogTitle || blog.title,
       description: blog.ogDescription || blog.metaDescription || blog.excerpt,

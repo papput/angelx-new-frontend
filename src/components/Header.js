@@ -84,17 +84,13 @@ export default function Header({
         ) : showLogo ? (
           <>
             <AppImage src={logo} alt="Logo" className="logo" />
-            {title === "AngelX" || title === "AngelX Wallet" ? (
-              <h1 className="title-left">{title}</h1>
-            ) : (
-              <h1 className="title-left">{title}</h1>
-            )}
+            <p className="title-left">{title}</p>
           </>
         ) : null}
       </div>
 
       {/* CENTER TITLE */}
-      {showBack && <h1 className="title-center">{title}</h1>}
+      {showBack && <p className="title-center">{title}</p>}
 
       {/* RIGHT SIDE */}
       <div className="header-right">

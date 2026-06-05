@@ -1,7 +1,9 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import AppImage from "@/components/AppImage";
 
-import api from "../api/axios"; // ✅ assuming your axios instance is here
+import api from "../api/axios";
 import { isLoggedIn } from "../utils/auth";
 import { parseExchangeRateResponse } from "../utils/exchangeRate";
 
@@ -10,7 +12,6 @@ import imagenew from "../assets/imagenew.jpg";
 import feature1 from "../assets/feature1.jpg";
 import feature2 from "../assets/feature2.jpg";
 import feature3 from "../assets/feature3.jpg";
-import reload from "../assets/reload.jpg";
 
 import matic from "../assets/matic.png";
 import shib from "../assets/shib.png";
@@ -23,7 +24,7 @@ import btc from "../assets/btc.png";
 import sol from "../assets/sol.png";
 import ton from "../assets/toncoin.png";
 
-import loadingGif from "../assets/base/loading.gif"; // ✅ add your loading.gif
+import loadingGif from "../assets/base/loading.gif";
 import reloadIcon from "../assets/home/refresh.png";
 
 import "./Home.css";
@@ -31,52 +32,36 @@ import "./PlatformPrice.css";
 import Header from "./Header";
 import Footer from "./Footer";
 import ApkDownloadBox from "./ApkDownloadBox";
-import PageMeta from "./PageMeta";
-
 export default function Home() {
   const [seconds, setSeconds] = useState(60);
   const [isFetching, setIsFetching] = useState(false);
-  const [error, setError] = useState("");
   const [basePrice, setBasePrice] = useState(null);
-  const [usdtInr, setUsdtInr] = useState(null);
+  const [userLevel, setUserLevel] = useState("Base");
+  const [userPrice, setUserPrice] = useState(0);
   const [expanded, setExpanded] = useState(false);
+  const [openIndex, setOpenIndex] = useState(null);
 
   const REFRESH_SECS = 60;
 
-  /* ------------------------------
-      FETCH RATE FROM BACKEND
-      GET /api/v1/exchange/rate
-  ------------------------------ */
   const fetchPlatformData = async () => {
     try {
       setIsFetching(true);
-      setError("");
-
       const res = await api.get("/exchange/rate");
       const { rate } = parseExchangeRateResponse(res.data);
-
-      if (rate != null) {
-        setBasePrice(rate);
-        setUsdtInr(rate);
-      } else {
-        setError("Failed to load rate");
-      }
+      if (rate != null) setBasePrice(rate);
     } catch (err) {
       console.error("Exchange rate error:", err);
-      setError("Unable to fetch exchange rate");
     } finally {
       setIsFetching(false);
       setSeconds(REFRESH_SECS);
     }
   };
 
-  const [userLevel, setUserLevel] = useState("Base");
-  const [userPrice, setUserPrice] = useState(0);
   const loadProfile = async () => {
     if (!isLoggedIn()) return;
     try {
       const res = await api.get("/user/profile");
-      setUserLevel(res?.data?.data?.user?.level);
+      setUserLevel(res?.data?.data?.user?.level || "Base");
       setUserPrice(Number(res?.data?.data?.user?.priceRate) || 0);
     } catch (err) {
       console.error("Profile API Error:", err);
@@ -84,7 +69,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    fetchPlatformData(); // Fetch once when page loads
+    fetchPlatformData();
     loadProfile();
     const interval = setInterval(() => {
       setSeconds((prev) => {
@@ -95,11 +80,10 @@ export default function Home() {
         return prev - 1;
       });
     }, 1000);
-
     return () => clearInterval(interval);
   }, []);
 
-  const [openIndex, setOpenIndex] = useState(null);
+  const displayRate = userPrice || basePrice;
 
   const faqs = [
     {
@@ -142,120 +126,17 @@ export default function Home() {
 
   return (
     <>
-      <PageMeta
-        title="AngelX – Sell USDT to INR Instantly & Securely | Angelx App"
-        description="AngelX is a trusted platform to sell USDT to INR instantly. Check Angelx USDT price, use the Angelx app, and securely convert your crypto to cash."
-        keywords="Angelx, sell USDT, Angelx USDT sell, Angelx USDT price, Angelx app, sell USDT to INR, Angelx co"
-        robots="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-      />
-
-      {/* ✅ HERO SECTION */}
-      <section className="hero-upper">
-        <h1>AngelX - Sell USDT to INR Instantly & Securely</h1>
-
-        <p>
-          <strong>AngelX</strong> is a fast and secure platform designed for
-          seamless crypto transactions. With the <strong>Angelx app</strong>,
-          users can easily track the <strong>Angelx USDT price</strong> and sell
-          USDT instantly.
-        </p>
-
-        <p>
-          If you want to <strong>sell USDT to INR</strong>,{" "}
-          <strong>Angelx.co</strong> provides a smooth and reliable experience
-          with real-time pricing and secure processing.
-        </p>
-      </section>
-
-      {/* ✅ FEATURES SECTION */}
-      <section className="features hidden-seo">
-        <h2>Why Choose AngelX for Selling USDT?</h2>
-
-        <ul>
-          <li>✔ Real-time Angelx USDT price tracking</li>
-          <li>✔ Instant USDT to INR conversion</li>
-          <li>✔ Secure and fast transactions</li>
-          <li>✔ Easy-to-use Angelx app interface</li>
-        </ul>
-      </section>
-
-      {/* ✅ FOOTER SEO BOOST */}
-      <footer className="hidden-seo">
-        <p>
-          Angelx | Sell USDT | Angelx USDT sell | Angelx USDT price | Angelx app
-          | Sell USDT to INR | Angelx co
-        </p>
-      </footer>
-
-      {/* ✅ HIDDEN SEO KEYWORDS */}
-      <div style={{ display: "none" }}>
-        Angelx sell USDT Angelx USDT sell Angelx USDT price sell USDT to INR
-        Angelx app Angelx co
-      </div>
       <div className="home-container">
         <ApkDownloadBox />
         <Header title="AngelX" showLogo showHelp />
+
+        <section className="hero-upper" aria-label="AngelX Exchange">
+          <h1>AngelX - Sell USDT to INR Instantly &amp; Securely</h1>
+        </section>
+
         {/* Banner */}
         <div className="banner-container">
           <AppImage src={banner} alt="AngelX Banner" className="banner-img" />
-        </div>
-
-        {/* Screenshot Section */}
-
-        <div className="overlay-box-new">
-          <div className="overlay-header-new">
-            <h2>Platform price</h2>
-          </div>
-
-          <div className="platform-price-container">
-            <div className="price-card">
-              <div className="refresh-section">
-                <p>
-                  Automatic refresh after{" "}
-                  <span className="refresh-timer">{seconds}s</span>
-                </p>
-                <AppImage
-                  src={reloadIcon}
-                  alt="refresh"
-                  className={`refresh-icon ${isFetching ? "spinning" : ""}`}
-                  onClick={fetchPlatformData}
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
-
-              <div className="price-display">
-                <div className="price-display">
-                  {isFetching ? (
-                    <AppImage
-                      src={loadingGif}
-                      alt="Loading..."
-                      className="loading-gif"
-                      style={{ width: "20px", height: "20px" }}
-                    />
-                  ) : (
-                    <>
-                      <span className="price-value">
-                        {(userPrice ? userPrice : basePrice) || "—"}
-                      </span>
-                      <div
-                        className={`base-badge ${userLevel == "Gold" ? "base-badge-gold" : "base-badge-normal"}`}
-                      >
-                        <span>{userLevel}</span>
-                      </div>
-                    </>
-                  )}
-                </div>
-              </div>
-
-              {isFetching ? (
-                ""
-              ) : (
-                <p className="conversion-text">
-                  1USDT = ₹{(userPrice ? userPrice : basePrice) || "—"}
-                </p>
-              )}
-            </div>
-          </div>
         </div>
 
         {/* Features */}
@@ -337,41 +218,33 @@ export default function Home() {
                   </div>
 
                   <div className="price-display">
-                    <div className="price-display">
-                      {isFetching ? (
-                        <AppImage
-                          src={loadingGif}
-                          alt="Loading..."
-                          className="loading-gif"
-                          style={{ width: "20px", height: "20px" }}
-                        />
-                      ) : (
-                        <>
-                          <span className="price-value">
-                            {(userPrice ? userPrice : basePrice) || "—"}
-                          </span>
-                          <div
-                            className={`base-badge ${userLevel == "Gold" ? "base-badge-gold" : "base-badge-normal"}`}
-                          >
-                            <span>{userLevel}</span>
-                          </div>
-                        </>
-                      )}
-                    </div>
+                    {isFetching && displayRate == null ? (
+                      <AppImage
+                        src={loadingGif}
+                        alt="Loading..."
+                        className="loading-gif"
+                        style={{ width: "20px", height: "20px" }}
+                      />
+                    ) : (
+                      <>
+                        <span className="price-value">{displayRate || "—"}</span>
+                        <div
+                          className={`base-badge ${userLevel === "Gold" ? "base-badge-gold" : "base-badge-normal"}`}
+                        >
+                          <span>{userLevel}</span>
+                        </div>
+                      </>
+                    )}
                   </div>
 
-                  {isFetching ? (
-                    ""
-                  ) : (
-                    <p className="conversion-text">
-                      1USDT = ₹{(userPrice ? userPrice : basePrice) || "—"}
-                    </p>
+                  {displayRate != null && (
+                    <p className="conversion-text">1USDT = ₹{displayRate}</p>
                   )}
                 </div>
               </div>
             </div>
           </div>
-        </div> 
+        </div>
 
         {/* Heading */}
         <h2 className="screenshot-text">Angelx Official Screenshot</h2>

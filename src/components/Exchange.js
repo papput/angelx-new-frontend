@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import AppImage from "@/components/AppImage";
 
@@ -82,21 +84,21 @@ export default function Exchange() {
       key: "wazirx",
       name: "wazirx",
       logo: wazirxLogo,
-      avg: 92.16,
+      avg: 100.37,
       unit: "RS",
-      rateStr: "1USDT = ₹92.16",
-      min: 92.1,
-      max: 92.32,
+      rateStr: "1USDT = ₹100.37",
+      min: 100.24,
+      max: 100.44,
     },
     {
       key: "binance",
       name: "BINANCE",
       logo: binanceLogo,
-      avg: 94.34,
+      avg: 103.77,
       unit: "RS",
-      rateStr: "1USDT = ₹94.34",
-      min: 94.0,
-      max: 94.5,
+      rateStr: "1USDT = ₹103.77",
+      min: 103,
+      max: 103.98,
     },
   ]);
 
@@ -194,6 +196,7 @@ export default function Exchange() {
   ------------------------------ */
   return (
     <div className="ex-page">
+      <h1 className="seo-page-h1">USDT Exchange – Live AngelX USDT Price</h1>
       <PageMeta
         title="Exchange USDT to INR – Real-Time Rates | AngelX"
         description="View live USDT to INR exchange rates on AngelX. Sell USDT instantly at the best platform price with tiered pricing, fast INR payouts, and 24/7 support."
@@ -223,66 +226,54 @@ export default function Exchange() {
             </div>
           </div>
 
-          <div className="overlay-box-new">
-            <div className="overlay-header-new">
+          <div className="ex-platform-price-section">
+            <div className="overlay-header overlay-header_exchange">
               <h2>Platform price</h2>
             </div>
 
             <div className="platform-price-container">
-              <div className="price-card">
+              <div className="price-card ex-exchange-price-card">
                 <div className="refresh-section">
                   <p>
                     Automatic refresh after{" "}
                     <span className="refresh-timer">{secondsLeft}s</span>
                   </p>
-                <AppImage
-                  src={reloadIcon}
-                  alt="refresh"
-                  className={`refresh-icon ${isFetching ? "spinning" : ""}`}
-                  onClick={fetchPlatformData}
-                  style={{ cursor: "pointer" }}
-                />
-              </div>
-
-              <div className="price-display">
-                {displayRate === null ? (
                   <AppImage
-                    src={loadingGif}
-                    alt="Loading..."
-                    className="loading-gif"
-                    style={{ width: "20px", height: "20px" }}
+                    src={reloadIcon}
+                    alt="refresh"
+                    className={`refresh-icon ${isFetching ? "spinning" : ""}`}
+                    onClick={fetchPlatformData}
+                    style={{ cursor: "pointer" }}
                   />
-                ) : (
-                  <>
-                    <span className="price-value">{displayRate}</span>
-                    <div
-                      className={`base-badge ${userLevel === "Gold" ? "base-badge-gold" : "base-badge-normal"}`}
-                    >
-                      <span>{userLevel}</span>
-                    </div>
-                  </>
+                </div>
+
+                <div className="price-display">
+                  {displayRate === null ? (
+                    <AppImage
+                      src={loadingGif}
+                      alt="Loading..."
+                      className="loading-gif"
+                      style={{ width: "20px", height: "20px" }}
+                    />
+                  ) : (
+                    <>
+                      <span className="price-value">{displayRate}</span>
+                      <div
+                        className={`base-badge ${userLevel === "Gold" ? "base-badge-gold" : "base-badge-normal"}`}
+                      >
+                        <span>{userLevel}</span>
+                      </div>
+                    </>
+                  )}
+                </div>
+
+                {displayRate !== null && (
+                  <p className="conversion-text">1USDT=₹{displayRate}</p>
                 )}
-              </div>
 
-              {displayRate !== null && (
-                <p className="conversion-text">1USDT = ₹{displayRate}</p>
-              )}
-              </div>
-            </div>
-          </div>
-
-          {/* Tier table */}
-          <div className="ex-platform-box">
-            <div className="flex items-center justify-between mb-1"></div>
-
-            <div className=" rounded-lg ex-card mb_exchange">
-              {/* Refresh bar */}
-
-              {/* TIER TABLE */}
-              <div className="flex justify-center items-center">
-                <div className="ex-tier-box">
-                  <div className="grid grid-cols-2  rounded-t-lg ex-tier-header">
-                    <div className="text-center  col-span-2">
+                <div className="ex-tier-box ex-tier-box--nested">
+                  <div className="grid grid-cols-2 ex-tier-header">
+                    <div className="text-center">
                       <span className="ex-tier-title">Exchange($)</span>
                     </div>
                     <div className="text-center">
@@ -290,24 +281,16 @@ export default function Exchange() {
                     </div>
                   </div>
 
-                  <div className="px-1 bg-white br_top">
+                  <div className="ex-tier-body">
                     {(apiTiers || tiers).map((t, idx) => (
                       <div
                         key={t.label || idx}
-                        className="grid  grid-cols-2  items-center font_12_exch"
-                        style={{
-                          borderBottom: "1px solid #f3f4f6",
-                        }}
+                        className="grid grid-cols-2 items-center font_12_exch ex-tier-row"
                       >
-                        <div
-                          style={{
-                            padding: "9px 0px",
-                          }}
-                          className="col-span-2 border-r  text-center text-[12px] text-gray-700"
-                        >
+                        <div className="text-center text-gray-700">
                           {t.label}
                         </div>
-                        <div className="text-center  text-[12px] font-semibold text-gray-800">
+                        <div className="text-center font-semibold text-gray-800">
                           {t.priceINR != null
                             ? t.priceINR
                             : getDisplayRate(userPrice, usdtInr, false)}
@@ -321,15 +304,15 @@ export default function Exchange() {
                     ))}
                   </div>
 
-                  <p className="ex-tier-link br_bottom">
+                  <p className="ex-tier-link">
                     What is tiered price policy?
                   </p>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* CTA */}
-            {/* CTA */}
+          <div className="ex-platform-box">
             <div className="px-4">
               {showLoggedIn ? (
                 <button className="ex-login-btn" onClick={handlePrimaryCta}>
