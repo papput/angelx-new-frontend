@@ -40,7 +40,7 @@ function estimateReadMinutes(sections = []) {
 
 export default function BlogDetailView({ blog, jsonLd }) {
   const router = useRouter();
-  const readMins = estimateReadMinutes(blog.sections);
+  const readMins = blog.readingTime || estimateReadMinutes(blog.sections);
   const typeLabel =
     blog.contentType === "current_affairs" ? "Current Affairs" : "Blog";
 
@@ -73,7 +73,12 @@ export default function BlogDetailView({ blog, jsonLd }) {
         className={`blog-detail-cover ${blog.featuredImage ? "blog-detail-cover--image" : "blog-detail-cover--gradient"}`}
       >
         {blog.featuredImage ? (
-          <img src={blog.featuredImage} alt="" className="blog-detail-cover-img" />
+          <img
+            src={blog.featuredImage}
+            alt={blog.featuredImageAlt || ""}
+            title={blog.featuredImageTitle || undefined}
+            className="blog-detail-cover-img"
+          />
         ) : (
           <div className="blog-detail-cover-pattern" aria-hidden>
             <span className="blog-detail-cover-mark">✦</span>

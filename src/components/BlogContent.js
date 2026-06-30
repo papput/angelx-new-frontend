@@ -1,12 +1,15 @@
 "use client";
 
 import "./Blogs.css";
+import BlogHtml from "@/components/BlogHtml";
+import BlogToc from "@/components/BlogToc";
 import {
   isExternalHref,
   linkRelForHref,
   linkTargetForHref,
   parseInlineLinks,
 } from "@/lib/blogText";
+import { stripHtml } from "@/lib/tocUtils";
 import Link from "next/link";
 
 function InlineText({ text }) {
@@ -32,7 +35,7 @@ function InlineText({ text }) {
               <a
                 key={`${index}-${href}`}
                 href={href}
-                className="blog-inline-link"
+                className={className}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -42,7 +45,7 @@ function InlineText({ text }) {
           }
 
           return (
-            <Link key={`${index}-${href}`} href={href} className="blog-inline-link">
+            <Link key={`${index}-${href}`} href={href} className={className}>
               {segment.text}
             </Link>
           );
@@ -66,7 +69,7 @@ function BlogLinkBlock({ block }) {
   if (external) {
     return (
       <p className="blog-link-wrap">
-        <a href={href} className={className} target={target} rel={rel}>
+        <a href={href} className={className} target={target} rel={rel} title={block.linkTitle}>
           {block.text}
           <span className="blog-block-link-icon" aria-hidden="true">
             ↗
@@ -79,36 +82,15 @@ function BlogLinkBlock({ block }) {
   return (
     <p className="blog-link-wrap">
       {isAnchor ? (
-        <a href={href} className={className}>
+        <a href={href} className={className} title={block.linkTitle}>
           {block.text}
         </a>
       ) : (
-        <Link href={href} className={className} target={target} rel={rel}>
+        <Link href={href} className={className} target={target} rel={rel} title={block.linkTitle}>
           {block.text}
         </Link>
       )}
     </p>
-  );
-}
-
-function BlogTocBlock({ block, sections = [] }) {
-  const items = sections
-    .filter((s) => s.title?.trim())
-    .map((s) => ({ label: s.title.trim(), href: `#${s.id}` }));
-
-  if (!items.length) return null;
-
-  return (
-    <nav className="blog-toc" aria-label={block.text || "Table of contents"}>
-      <h3 className="blog-toc-title">{block.text || "Table of Contents"}</h3>
-      <ol className="blog-toc-list">
-        {items.map((item) => (
-          <li key={item.href}>
-            <a href={item.href}>{item.label}</a>
-          </li>
-        ))}
-      </ol>
-    </nav>
   );
 }
 
@@ -119,9 +101,7 @@ function TableBlock({ block }) {
 
   return (
     <div className="blog-table-wrap">
-      <table
-        className={`blog-table ${table.stripe ? "striped" : ""}`}
-      >
+      <table className={`blog-table ${table.stripe ? "striped" : ""}`}>
         {table.header && columns.length > 0 && (
           <thead>
             <tr>
@@ -145,20 +125,69 @@ function TableBlock({ block }) {
   );
 }
 
+function ImageBlock({ block }) {
+  if (!block.src) return null;
+  const align = block.align || "center";
+  return (
+    <figure className={`blog-figure blog-figure--${align}`}>
+      <img
+        src={block.src}
+        alt={block.alt || ""}
+        title={block.title || undefined}
+        loading="lazy"
+        style={block.width ? { width: `${block.width}%`, maxWidth: "100%" } : undefined}
+        className="blog-body-image"
+      />
+      {block.caption ? <figcaption>{block.caption}</figcaption> : null}
+    </figure>
+  );
+}
+
+function HeadingBlock({ block }) {
+  const level = parseInt(String(block.level || "h2").replace(/^h/i, ""), 10) || 2;
+  const clamped = Math.min(6, Math.max(2, level));
+  const anchorId = block.anchorId || undefined;
+  const label = stripHtml(block.html) || block.text;
+
+  if (block.html?.match(new RegExp(`^<h${clamped}[\\s>]`, "i"))) {
+    const withId = block.html.replace(
+      new RegExp(`^<h${clamped}`, "i"),
+      `<h${clamped} id="${anchorId || ""}"`,
+    );
+    return (
+      <BlogHtml
+        html={withId}
+        className={`blog-block-heading blog-block-heading--h${clamped}`}
+      />
+    );
+  }
+
+  if (block.html) {
+    const Tag = `h${clamped}`;
+    return (
+      <Tag
+        id={anchorId}
+        className={`blog-block-heading blog-block-heading--h${clamped}`}
+      >
+        <BlogHtml html={block.html} />
+      </Tag>
+    );
+  }
+
+  const Tag = `h${clamped}`;
+  return (
+    <Tag
+      id={anchorId}
+      className={`blog-block-heading blog-block-heading--h${clamped}`}
+    >
+      <InlineText text={label} />
+    </Tag>
+  );
+}
+
 function Block({ block, sections }) {
   if (block.type === "heading") {
-    if (block.level === "h3") {
-      return (
-        <h3 className="blog-block-heading blog-block-heading--h3">
-          <InlineText text={block.text} />
-        </h3>
-      );
-    }
-    return (
-      <h2 className="blog-block-heading">
-        <InlineText text={block.text} />
-      </h2>
-    );
+    return <HeadingBlock block={block} />;
   }
   if (block.type === "table") {
     return <TableBlock block={block} />;
@@ -167,7 +196,10 @@ function Block({ block, sections }) {
     return <BlogLinkBlock block={block} />;
   }
   if (block.type === "toc") {
-    return <BlogTocBlock block={block} sections={sections} />;
+    return <BlogToc block={block} sections={sections} />;
+  }
+  if (block.type === "image") {
+    return <ImageBlock block={block} />;
   }
   if (block.type === "list") {
     const items = (block.items || []).filter(Boolean);
@@ -185,6 +217,9 @@ function Block({ block, sections }) {
       </ListTag>
     );
   }
+  if (block.html) {
+    return <BlogHtml html={block.html} className="blog-block-paragraph" />;
+  }
   return (
     <p className="blog-block-paragraph">
       {block.text?.split("\n").map((line, i, arr) => (
@@ -201,13 +236,7 @@ export default function BlogContent({ sections = [] }) {
   return (
     <article className="blog-article-body">
       {sections.map((section) => (
-        <section key={section.id} id={section.id} className="blog-section">
-          {section.title && (
-            <div className="blog-section-label">
-              <span className="blog-section-label-line" aria-hidden />
-              <h2 className="blog-section-title">{section.title}</h2>
-            </div>
-          )}
+        <section key={section.id} className="blog-section">
           {(section.blocks || []).map((block) => (
             <Block key={block.id} block={block} sections={sections} />
           ))}

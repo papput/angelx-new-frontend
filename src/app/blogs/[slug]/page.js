@@ -34,6 +34,19 @@ export async function generateMetadata({ params }) {
       type: "article",
       url: canonical,
     },
+    twitter: {
+      card: "summary_large_image",
+      title: blog.twitterTitle || blog.ogTitle || blog.metaTitle || blog.title,
+      description:
+        blog.twitterDescription ||
+        blog.ogDescription ||
+        blog.metaDescription ||
+        blog.excerpt ||
+        "",
+      images: blog.twitterImage || blog.ogImage || blog.featuredImage
+        ? [blog.twitterImage || blog.ogImage || blog.featuredImage]
+        : [],
+    },
   };
 }
 
