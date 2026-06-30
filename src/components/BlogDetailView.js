@@ -27,7 +27,12 @@ function authorInitials(name) {
 function estimateReadMinutes(sections = []) {
   const text = sections
     .flatMap((s) => s.blocks || [])
-    .map((b) => b.text || "")
+    .map((b) => {
+      if (b.type === "list") return (b.items || []).join(" ");
+      if (b.type === "link") return `${b.text || ""} ${b.href || ""}`.trim();
+      if (b.type === "toc") return b.text || "Table of Contents";
+      return b.text || "";
+    })
     .join(" ");
   const words = text.trim().split(/\s+/).filter(Boolean).length;
   return Math.max(1, Math.ceil(words / 200));

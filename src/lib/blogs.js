@@ -32,6 +32,9 @@ export function blocksToPlainText(sections = []) {
     .flatMap((s) => s.blocks || [])
     .map((b) => {
       if (b.type === "table") return (b.table?.columns || []).join(" ");
+      if (b.type === "list") return (b.items || []).join(" ");
+      if (b.type === "link") return `${b.text || ""} ${b.href || ""}`.trim();
+      if (b.type === "toc") return b.text || "Table of Contents";
       return b.text || "";
     })
     .join(" ")
