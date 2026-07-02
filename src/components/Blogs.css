@@ -644,6 +644,36 @@
   color: #374151;
 }
 
+.blog-html img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem auto;
+  border-radius: 10px;
+}
+
+.blog-figure {
+  margin: 1.5rem 0;
+}
+
+.blog-figure--center {
+  text-align: center;
+}
+
+.blog-figure--left {
+  text-align: left;
+}
+
+.blog-figure--right {
+  text-align: right;
+}
+
+.blog-figure figcaption {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 0.5rem;
+}
+
 .blog-block-list {
   margin: 0 0 18px;
   padding-left: 1.35rem;

@@ -174,7 +174,7 @@ export default function Exchange() {
         return s - 1;
       });
     }, 1000);
-
+ 
     return () => clearInterval(tickRef.current);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

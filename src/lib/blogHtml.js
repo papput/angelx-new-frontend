@@ -13,6 +13,7 @@ export function sanitizeBlogHtml(html = "") {
       "s",
       "strike",
       "a",
+      "img",
       "h1",
       "h2",
       "h3",
@@ -28,7 +29,7 @@ export function sanitizeBlogHtml(html = "") {
       "span",
       "mark",
     ],
-    ALLOWED_ATTR: ["href", "target", "rel", "title", "class", "style", "id"],
+    ALLOWED_ATTR: ["href", "target", "rel", "title", "class", "style", "id", "src", "alt", "width", "height", "loading"],
     ALLOW_DATA_ATTR: false,
   });
 }

@@ -79,6 +79,17 @@ export default function TransactionDetails() {
       </div>
     );
 
+  const formatTradeNo = (item) => {
+    if (!item) return "N/A";
+    if (item.transactionNo) return item.transactionNo;
+    const ts = new Date(item.submittedAt || item.createdAt || Date.now()).getTime();
+    const tail = String(item.id || "")
+      .replace(/\W/g, "")
+      .slice(-10);
+    return `CD${ts}${tail}`;
+  };
+
+  const tradeNo = formatTradeNo(data);
   const isCompleted = data.status === "completed";
   const isFailed = data.status === "failed";
 
@@ -240,12 +251,12 @@ export default function TransactionDetails() {
             <span className="txn-label">Trade no</span>
 
             <span className="txn-value txn-copy-container">
-              {data.id}
+              {tradeNo}
               <AppImage
                 src={copyIcon}
                 className="txn-copy-icon"
                 alt="copy"
-                onClick={() => copyToClipboard(data.id)}
+                onClick={() => copyToClipboard(tradeNo)}
               />
             </span>
           </div>
