@@ -20,6 +20,7 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     config.headers["x-platform"] = "web";
+    config.headers["X-Requested-With"] = "XMLHttpRequest";
 
     if (typeof window !== "undefined") {
       const token = localStorage.getItem("token");
