@@ -1,39 +1,25 @@
 .apk-box-wrapper {
-  position: fixed;
-  bottom: 70px;
-  left: 0;
   width: 100%;
-
-  display: flex;
-  justify-content: center; /* centers horizontally */
-
-  z-index: 999999;
-  pointer-events: none; /* optional (prevents overlay issues) */
+  box-sizing: border-box;
+  background: #f3f3f3;
+  border-bottom: 1px solid #e8e8e8;
 }
 
-/* MAIN CARD */
+/* MAIN ROW — full width, part of header */
 .apk-box {
-  width: 92%;
-  max-width: 650px;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  padding: 6px 15px;
+  padding: 8px 12px;
   background: #f3f3f3;
-  border-radius: 5px;
-  /* border: 1px solid rgb(207, 207, 208); */
-
+  border-radius: 0;
   position: relative;
-  pointer-events: all;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
-}
-
-@media (min-width: 768px) {
-  .apk-box {
-  width: 366px;
-}
+  box-shadow: none;
 }
 
 /* LEFT SIDE */
@@ -41,6 +27,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
 }
 
 .apk-logo {
@@ -48,12 +35,14 @@
   height: 44px;
   border-radius: 10px;
   object-fit: cover;
+  flex-shrink: 0;
 }
 
 /* TEXT */
 .apk-text-group {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .apk-title {
@@ -68,41 +57,36 @@
   margin-top: 2px;
 }
 
-/* DOWNLOAD BUTTON (RIGHT SIDE FIXED) */
+/* DOWNLOAD BUTTON */
 .apk-download-btn {
   background: #f5b400;
   color: #000;
-  margin-top: 15px;
-  /* margin-right: 10px; */
+  margin-top: 0;
   padding: 6px 20px;
   border-radius: 999px;
-
   font-size: 12px;
-  /* font-weight: 600; */
   text-decoration: none;
-
   white-space: nowrap;
-
-  transition: all 0.2s ease;
+  flex-shrink: 0;
+  transition: background 0.2s ease;
 }
 
 .apk-download-btn:hover {
   background: #e0a800;
-  transform: scale(1.05);
 }
 
 /* CLOSE BUTTON */
 .apk-close {
   position: absolute;
-  top: 0px;
-  right: 10px;
-
+  top: 2px;
+  right: 8px;
   border: none;
   background: none;
-
   font-size: 18px;
+  line-height: 1;
   color: #999;
   cursor: pointer;
+  padding: 0;
 }
 
 .apk-close:hover {

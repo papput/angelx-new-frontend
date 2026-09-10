@@ -24,7 +24,7 @@ export default function ApkDownloadBox() {
           <AppImage src={logo} alt="Logo" className="apk-logo" />
 
           <div className="apk-text-group">
-            <span className="apk-title">AngelX</span>
+            <span className="apk-title">AngelX App</span>
             <span className="apk-subtitle">
               The best exchange USDT platform
             </span>

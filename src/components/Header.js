@@ -10,6 +10,7 @@ import arrowBack from "../assets/base/arrow_back.png";
 import history from "../assets/recharge/history.png";
 
 import api from "../api/axios";
+import ApkDownloadBox from "./ApkDownloadBox";
 import "./Header.css";
 
 export default function Header({
@@ -20,6 +21,7 @@ export default function Header({
   showHistory = false,
   historyLink = "/",
   showBackLink = "/",
+  showApkDownload = false,
 }) {
   const router = useRouter();
 
@@ -55,14 +57,12 @@ export default function Header({
     router.push(showBackLink);
   };
 
-  // 🔥 Same Logic as React-Native version
   const handleWhatsAppClick = () => {
     let phone = whatsAppConfig?.phoneNumber || "447366320709";
     let message =
       whatsAppConfig?.defaultMessage ||
       "Hello, I need help with AngelX platform.";
 
-    // remove + if present
     phone = phone.replace(/^\+/, "");
 
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
@@ -71,56 +71,55 @@ export default function Header({
   };
 
   return (
-    <header className="header_angelX">
-      {/* LEFT SIDE */}
-      <div className="header-left">
-        {showBack ? (
-          <AppImage
-            src={arrowBack}
-            alt="Back"
-            className="icon-btn"
-            onClick={goBack}
-          />
-        ) : showLogo ? (
-          <>
-            <AppImage src={logo} alt="Logo" className="logo" />
-            <p className="title-left">{title}</p>
-          </>
-        ) : null}
-      </div>
+    <div className="header-with-apk">
+      {showApkDownload ? <ApkDownloadBox /> : null}
 
-      {/* CENTER TITLE */}
-      {showBack && <p className="title-center">{title}</p>}
-
-      {/* RIGHT SIDE */}
-      <div className="header-right">
-        {/* HELP BUTTON */}
-        {needsWhatsApp && (
-          <button
-            type="button"
-            className={`header-help-btn ${whatsAppLoading ? "is-loading" : ""}`}
-            onClick={handleWhatsAppClick}
-            aria-label="WhatsApp help"
-            aria-busy={whatsAppLoading}
-          >
+      <header className="header_angelX">
+        <div className="header-left">
+          {showBack ? (
             <AppImage
-              src={whatsapp}
-              alt="WhatsApp"
-              className="header-whatsapp-icon"
+              src={arrowBack}
+              alt="Back"
+              className="icon-btn"
+              onClick={goBack}
             />
-          </button>
-        )}
+          ) : showLogo ? (
+            <>
+              <AppImage src={logo} alt="Logo" className="logo" />
+              <p className="title-left">{title}</p>
+            </>
+          ) : null}
+        </div>
 
-        {/* HISTORY */}
-        {showHistory && (
-          <AppImage
-            src={history}
-            alt="History"
-            className="icon-btn"
-            onClick={() => router.push(historyLink)}
-          />
-        )}
-      </div>
-    </header>
+        {showBack && <p className="title-center">{title}</p>}
+
+        <div className="header-right">
+          {needsWhatsApp && (
+            <button
+              type="button"
+              className={`header-help-btn ${whatsAppLoading ? "is-loading" : ""}`}
+              onClick={handleWhatsAppClick}
+              aria-label="WhatsApp help"
+              aria-busy={whatsAppLoading}
+            >
+              <AppImage
+                src={whatsapp}
+                alt="WhatsApp"
+                className="header-whatsapp-icon"
+              />
+            </button>
+          )}
+
+          {showHistory && (
+            <AppImage
+              src={history}
+              alt="History"
+              className="icon-btn"
+              onClick={() => router.push(historyLink)}
+            />
+          )}
+        </div>
+      </header>
+    </div>
   );
 }

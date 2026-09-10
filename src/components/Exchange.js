@@ -11,6 +11,7 @@ import {
 } from "../utils/exchangeRate";
 import { getDisplayRate } from "../utils/formatRate";
 import "./Exchange.css";
+import "./Header.css";
 import "./Global.css";
 import "./PlatformPrice.css";
 import { useRouter } from "next/navigation";
@@ -205,11 +206,13 @@ export default function Exchange() {
         canonical="https://angelx.exchange/exchange"
       />
 
-      {/* <ApkDownloadBox /> */}
       {!showLoggedIn ? (
-        <Header title="AngelX Wallet" showLogo showHelp />
+        <Header title="AngelX Wallet" showLogo showHelp showApkDownload />
       ) : (
-        <ProfileHeader />
+        <div className="header-with-apk">
+          <ApkDownloadBox />
+          <ProfileHeader />
+        </div>
       )}
 
       <div className="p-2">

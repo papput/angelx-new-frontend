@@ -8,6 +8,7 @@ import { isLoggedIn } from "../utils/auth";
 import { parseExchangeRateResponse } from "../utils/exchangeRate";
 
 import banner from "../assets/banner.jpg";
+import securityAlertBanner from "../assets/security-alert-banner.jpg";
 import imagenew from "../assets/imagenew.jpg";
 import feature1 from "../assets/feature1.jpg";
 import feature2 from "../assets/feature2.jpg";
@@ -31,7 +32,7 @@ import "./Home.css";
 import "./PlatformPrice.css";
 import Header from "./Header";
 import Footer from "./Footer";
-import ApkDownloadBox from "./ApkDownloadBox";
+import ScamWarningMarquee from "./ScamWarningMarquee";
 export default function Home() {
   const [seconds, setSeconds] = useState(60);
   const [isFetching, setIsFetching] = useState(false);
@@ -40,8 +41,32 @@ export default function Home() {
   const [userPrice, setUserPrice] = useState(0);
   const [expanded, setExpanded] = useState(false);
   const [openIndex, setOpenIndex] = useState(null);
+  const [marketItems, setMarketItems] = useState([
+    { img: matic, name: "MATIC", change: "—", changeClass: "green", vol: "—", price: "—" },
+    { img: shib, name: "SHIB", change: "—", changeClass: "green", vol: "—", price: "—" },
+    { img: fil, name: "FIL", change: "—", changeClass: "red", vol: "—", price: "—" },
+    { img: eos, name: "EOS", change: "—", changeClass: "red", vol: "—", price: "—" },
+    { img: dot, name: "DOT", change: "—", changeClass: "red", vol: "—", price: "—" },
+    { img: usdt, name: "USDT", change: "—", changeClass: "green", vol: "—", price: "—" },
+    { img: doge, name: "DOGE", change: "—", changeClass: "red", vol: "—", price: "—" },
+    { img: btc, name: "BTC", change: "—", changeClass: "green", vol: "—", price: "—" },
+    { img: sol, name: "SOL", change: "—", changeClass: "green", vol: "—", price: "—" },
+    { img: ton, name: "TON", change: "—", changeClass: "red", vol: "—", price: "—" },
+  ]);
 
   const REFRESH_SECS = 60;
+  const COIN_IMAGES = {
+    MATIC: matic,
+    SHIB: shib,
+    FIL: fil,
+    EOS: eos,
+    DOT: dot,
+    USDT: usdt,
+    DOGE: doge,
+    BTC: btc,
+    SOL: sol,
+    TON: ton,
+  };
 
   const fetchPlatformData = async () => {
     try {
@@ -68,13 +93,36 @@ export default function Home() {
     }
   };
 
+  const fetchMarketList = async () => {
+    try {
+      const res = await api.get("/exchange/market-list");
+      const markets = res?.data?.data?.markets;
+      if (!Array.isArray(markets) || markets.length === 0) return;
+
+      setMarketItems(
+        markets.map((coin) => ({
+          img: COIN_IMAGES[coin.symbol] || btc,
+          name: coin.symbol || coin.name,
+          change: coin.change || "—",
+          changeClass: coin.changeClass || "green",
+          vol: coin.vol || "—",
+          price: coin.price || "—",
+        })),
+      );
+    } catch (err) {
+      console.error("Market list error:", err);
+    }
+  };
+
   useEffect(() => {
     fetchPlatformData();
     loadProfile();
+    fetchMarketList();
     const interval = setInterval(() => {
       setSeconds((prev) => {
         if (prev <= 1) {
           fetchPlatformData();
+          fetchMarketList();
           return REFRESH_SECS;
         }
         return prev - 1;
@@ -127,17 +175,34 @@ export default function Home() {
   return (
     <>
       <div className="home-container">
-        <ApkDownloadBox />
-        <Header title="AngelX" showLogo showHelp />
+        <Header title="AngelX" showLogo showHelp showApkDownload />
+
+        <ScamWarningMarquee />
+
+        <div className="security-alert-banner">
+          <a
+            href="https://www.angelx.biz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="AngelX official website security alert"
+          >
+            <AppImage
+              src={securityAlertBanner}
+              alt="Security Alert From AngelX — Official website https://www.angelx.biz/. Never share login credentials. Any other link claiming AngelX is fake."
+              className="security-alert-banner-img"
+            />
+          </a>
+        </div>
 
         <section className="hero-upper" aria-label="AngelX Exchange">
           <h1>AngelX - Sell USDT to INR Instantly &amp; Securely</h1>
         </section>
 
-        {/* Banner */}
+        {/* Banner — disabled for now; re-enable when needed
         <div className="banner-container">
           <AppImage src={banner} alt="AngelX Banner" className="banner-img" />
         </div>
+        */}
 
         {/* Features */}
         <div className="features">
@@ -261,89 +326,8 @@ export default function Home() {
             </div>
 
             <div className="market-list">
-              {[
-                {
-                  img: matic,
-                  name: "MATIC",
-                  change: "+4.25%",
-                  changeClass: "green",
-                  vol: "$968,475.1",
-                  price: "$0.2853",
-                },
-                {
-                  img: shib,
-                  name: "SHIB",
-                  change: "+5.52%",
-                  changeClass: "green",
-                  vol: "$8,698,736.9",
-                  price: "$0.00001236",
-                },
-                {
-                  img: fil,
-                  name: "FIL",
-                  change: "-2.21%",
-                  changeClass: "red",
-                  vol: "$27,262,113.3",
-                  price: "$2.32",
-                },
-                {
-                  img: eos,
-                  name: "EOS",
-                  change: "-2.47%",
-                  changeClass: "red",
-                  vol: "$729,640.7",
-                  price: "$0.4655",
-                },
-                {
-                  img: dot,
-                  name: "DOT",
-                  change: "-1.15%",
-                  changeClass: "red",
-                  vol: "$7,260,036.3",
-                  price: "$3.83",
-                },
-                {
-                  img: usdt,
-                  name: "USDT",
-                  change: "0.01%",
-                  changeClass: "green",
-                  vol: "$304,983,444.8",
-                  price: "$1.00",
-                },
-                {
-                  img: doge,
-                  name: "DOGE",
-                  change: "-6.55%",
-                  changeClass: "red",
-                  vol: "$59,978,076.9",
-                  price: "$0.2170",
-                },
-                {
-                  img: btc,
-                  name: "BTC",
-                  change: "+1.45%",
-                  changeClass: "green",
-                  vol: "$2,307,740,024.6",
-                  price: "$112,271.1",
-                },
-                {
-                  img: sol,
-                  name: "SOL",
-                  change: "0.95%",
-                  changeClass: "green",
-                  vol: "$409,062,610.6",
-                  price: "$206.17",
-                },
-                {
-                  img: ton,
-                  name: "TON",
-                  change: "-0.23%",
-                  changeClass: "red",
-                  vol: "$26,717,494.0",
-                  price: "$3.13",
-                },
-              ].map((item, i) => (
-                <div className="market-item" key={i}>
+              {marketItems.map((item, i) => (
+                <div className="market-item" key={item.name || i}>
                   <div className="coin-info">
                     <AppImage src={item.img} alt={item.name} className="coin-img" />
                     <div>

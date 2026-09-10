@@ -9,6 +9,27 @@
   padding-bottom: 80px; /* space for footer */
 }
 
+.security-alert-banner {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 17px 0;
+  margin-bottom: 14px;
+}
+
+.security-alert-banner a {
+  display: block;
+  width: 100%;
+  line-height: 0;
+}
+
+.security-alert-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
 /* ----------------------------------------------------
    TAILWIND COLOR MAPPINGS (DEFAULT)
 ---------------------------------------------------- */

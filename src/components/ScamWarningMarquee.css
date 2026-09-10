@@ -1,0 +1,162 @@
+.scam-marquee {
+  --alert-red: #d4001a;
+  --alert-red-deep: #8b0010;
+  --alert-highlight: #ffe566;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 36px;
+  padding: 2px 8px;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 45%),
+    linear-gradient(90deg, var(--alert-red-deep), var(--alert-red), var(--alert-red-deep));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 4px 16px rgba(212, 0, 26, 0.3);
+}
+
+.scam-siren {
+  position: relative;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 12px rgba(255, 40, 60, 0.45);
+}
+
+.scam-siren-video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+}
+
+.scam-marquee-viewport {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+
+.scam-marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: scam-flow 16s linear infinite;
+}
+
+.scam-marquee:hover .scam-marquee-track {
+  animation-play-state: paused;
+}
+
+.scam-marquee-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 6px 0;
+}
+
+.scam-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.scam-domain {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #fff6a8 0%, var(--alert-highlight) 100%);
+  color: #8b0000;
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.55),
+    0 0 12px rgba(255, 229, 102, 0.75);
+  animation: scam-domain-pulse 1.2s ease-in-out infinite;
+}
+
+.scam-suffix {
+  color: #fff;
+  font-weight: 700;
+}
+
+.scam-sep {
+  display: inline-block;
+  margin: 0 14px 0 8px;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 800;
+}
+
+@keyframes scam-domain-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.55),
+      0 0 10px rgba(255, 229, 102, 0.65);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow:
+      0 0 0 2px rgba(255, 255, 255, 0.8),
+      0 0 18px rgba(255, 229, 102, 1);
+  }
+}
+
+@keyframes scam-flow {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scam-marquee-track,
+  .scam-domain {
+    animation: none;
+  }
+
+  .scam-marquee-group[aria-hidden="true"] {
+    display: none;
+  }
+
+  .scam-siren-video {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .scam-chip,
+  .scam-domain {
+    font-size: 12px;
+  }
+
+  .scam-siren {
+    width: 24px;
+    height: 24px;
+  }
+}
